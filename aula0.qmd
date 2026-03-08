@@ -1,5 +1,5 @@
 ---
-title: Apresentação do Curso<br><br>GAC127<br>Mineração de Dados<br><br>2026/1<br><br>
+title: Apresentação do Curso XXX<br><br>GAC127<br>Mineração de Dados<br><br>2026/1<br><br>
 title-slide-attributes:
     data-background-size: contain
     data-background-position-x: center
