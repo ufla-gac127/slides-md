@@ -151,6 +151,12 @@ Para os alunos que **não alcançarem 60 pontos** no final do semestre (NF), ser
 ::::
 :::
 
+
+## Enquete
+
+![](figuras/mentimeter_qr_code_aula0.png){fig-alt="Enquete" fig-align="center" width=50%}
+
+
 ##
 
 ![](figuras/perguntas.png){fig-alt="Perguntas" fig-align="center" width=35%}
