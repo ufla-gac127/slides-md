@@ -167,3 +167,12 @@ A [execução]{.alert} de um [projeto]{.alert} de ciência de dados envolve as [
 
 ## **Processo de Descoberta de Conhecimento em Bases de Dados**
 ![](figuras/processoKDD.png){fig-alt="Processo KDD" fig-align="center" width=100%}
+
+## **Qualidade dos Dados**
+
+- A mineração de dados é muitas vezes aplicada a dados que foram coletados e armazenados por outros propósitos ou para aplicações futuras não especificadas. 
+  - Isso faz com que esses dados possam não ter a qualidade desejada para a mineração de dados.
+- Esses dados podem conter muitos erros, ruídos e valores ausentes, o que pode levar a resultados de mineração de dados imprecisos ou enganosos.
+- Portanto, dois caminhos são possíveis para lidar com essa questão:
+  - Realizar pré-processamento para detectar e corrigir problemas de qualidade dos dados.
+  - Usar algoritmos que tenham a capacidade de lidar com dados de baixa qualidade. 

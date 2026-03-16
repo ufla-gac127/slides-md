@@ -321,6 +321,8 @@ Cada tupla deste exemplo indica a [quantidade total de produtos]{.alert} consumi
 
 - **Exemplo:** a partir das características de um indivíduo, determinar a que classe social ele pertence.
   - Conjunto de classes = {A, B, C, D, E}.
+  
+[Categorias de tarefas de classificação]{.alert}: binária, multiclasse, multirrótulo e hierárquica.
 :::
 
 ## **Treinamento de um Modelo de Classificação**
