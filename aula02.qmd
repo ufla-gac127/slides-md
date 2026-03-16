@@ -151,9 +151,19 @@ Enquanto dados estruturados são mais fáceis de serem processados, os não estr
 |                  |                            | **Ordinais** | Nível de satisfação (baixo, médio, alto), escolaridade (fundamental, médio, superior) |
 :::
 
-# **Processo de Descoberta de Conhecimento em Bases de Dados** {background-color="#0efb45ce" style="text-align: center;"}
-## 
-![](figuras/processoKDD.png){fig-alt="Processo KDD" fig-align="center" width=100%}
+# **Etapas de um Projeto de Ciência de Dados** {background-color="#0efb45ce" style="text-align: center;"}
 
-## **Etapas do Processo**
-Ver livro de Ciência de Dados
+## **Etapas de um Projeto**
+:::{style='font-size: 0.9em;'}
+A [execução]{.alert} de um [projeto]{.alert} de ciência de dados envolve as [diversas etapas]{.alert}:
+
+- **Entendimento do domínio da aplicação**: [Compreender o problema]{.alert} a ser resolvido, identificando os [objetivos do projeto]{.alert} do ponto de vista do [cliente]{.alert}.
+- **Coleta de dados**: [Reunir os dados]{.alert} necessários para a análise.
+- **Pré-processamento de dados**: [Limpar]{.alert} o conjunto de [dados]{.alert}, identificar e remover [ruídos]{.alert}, tratar [valores ausentes]{.alert}, reduzir a [dimensionalidade]{.alert} dos dados, [transformar]{.alert} e preparar os dados para [análise]{.alert}, garantindo sua [qualidade e adequação]{.alert}.
+- **Modelagem**: [Escolher e aplicar]{.alert} os [algoritmos]{.alert} para [construir modelos]{.alert} preditivos ou descritivos, dependendo do objetivo do projeto.
+- **Avaliação**: [Avaliar o desempenho]{.alert} dos modelos utilizando métricas apropriadas e [validar os resultados]{.alert}.
+- **Implantação**: [Implantar os modelos]{.alert} em um [ambiente de produção]{.alert} para que possam ser utilizados pelo cliente.
+:::
+
+## **Processo de Descoberta de Conhecimento em Bases de Dados**
+![](figuras/processoKDD.png){fig-alt="Processo KDD" fig-align="center" width=100%}

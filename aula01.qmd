@@ -84,7 +84,7 @@ Como analisar essa enorme quantidade de dados?
 ::: {.column width="70%"}
 **O que é Mineração de Dados?**
 
-É o [processo automático]{.alert} de [descoberta]{.alert} de novas [informações]{.alert} e [conhecimento]{.alert}, úteis a uma aplicação, no formato de [regras]{.alert} e [padrões]{.alert}, "escondidas" em [grandes volumes de dados]{.alert}.
+É o [processo automático]{.alert} de [descoberta]{.alert} de novas [informações]{.alert} e [conhecimento]{.alert}, úteis a uma aplicação, no formato de [regras]{.alert} e [padrões]{.alert}, "escondidos" em [grandes volumes de dados]{.alert}.
 
 :::{.fragment}
 **Onde ocorre?**
@@ -210,12 +210,12 @@ São utilizadas quando se deseja [minerar]{.alert} padrões em [bases de dados r
    - Esta regra indica, com certo grau de certeza, que advogados, entre 20 e 30 anos, do sexo masculino são consumidores de *laptops*.
 :::
 
-
+<!--
 # **Vamos Praticar!** {background-color="#e2fa02ce" style="text-align: center;"}
 ![](figuras/programar.png){fig-alt="Base Relacional" fig-align="center" width=40%}
 
 <https://colab.research.google.com/drive/1RnS7z4_g1QrXTxdWaAhvqfw93DB8ea8g>
-
+-->
 
 # **Extração de Padrões de Sequência** {background-color="#0efb45ce" style="text-align: center;"}
 ## **Definição**
@@ -306,12 +306,12 @@ Cada tupla deste exemplo indica a [quantidade total de produtos]{.alert} consumi
 :::
 :::
 
-
+<!--
 # **Vamos Praticar!** {background-color="#e2fa02ce" style="text-align: center;"}
 ![](figuras/programar.png){fig-alt="Base Relacional" fig-align="center" width=40%}
 
 <https://colab.research.google.com/drive/1SIEWGPVc32xe4UGGzGuxK7E2gDs5vCe3>
-
+-->
 
 # **Classificação e Regressão** {background-color="#0efb45ce" style="text-align: center;"}
 
@@ -352,11 +352,12 @@ Cada tupla deste exemplo indica a [quantidade total de produtos]{.alert} consumi
 :::
 :::
 
-
+<!--
 ## **Processo de Avaliação de um Modelo de Classificação**{style="text-align: center;"}
 ::: {style="display: flex; align-items: center; justify-content: center; height: 100%;"}
 ![](figuras/processo_classificacao.png){fig-alt="Processo" fig-align="center" width=100%}
 :::
+-->
 
 ## **Objetivo da Regressão**
 ::: {.nonincremental style="line-height: 2.0;"}
@@ -367,11 +368,12 @@ Cada tupla deste exemplo indica a [quantidade total de produtos]{.alert} consumi
    $Y=\alpha + a_1 x_1 + a_2 x_2 + \ldots + a_n x_n$.
 :::
 
+<!--
 # **Vamos Praticar!** {background-color="#e2fa02ce" style="text-align: center;"}
 ![](figuras/programar.png){fig-alt="Base Relacional" fig-align="center" width=40%}
 
 <https://colab.research.google.com/drive/1pqUDMwn3_pOm8Evjso6rk31P8oS0CupH>
-
+-->
 
 # **Aplicações e Softwares** {background-color="#0efb45ce" style="text-align: center;"}
 
