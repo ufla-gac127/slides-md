@@ -402,23 +402,8 @@ Analisar [tendências]{.alert} e encontrar [padrões]{.alert} a partir de [dados
 - **Scikit-learn:** Software desenvolvido em Python que fornece um conjunto de algoritmos de mineração de dados.
 
 ##
-::::{.columns style='display: flex !important; align-items: center;'}
-::: {.column width="55%"}
-![](figuras/contatos.png){fig-alt="Carrinho" fig-align="center" width=50%}
 
-:::{style="font-size: 85%;"}
-Prof. Luiz Henrique de Campos Merschmann<br>
-Departamento de Computação Aplicada<br>
-<luiz.hcm@ufla.br><br>
-<https://luiz.dac.ufla.br>
-
-:::
-:::
-
-::: {.column width="45%"}
-![](figuras/perguntas.png){fig-alt="Perguntas" fig-align="center" width=80%}
-:::
-::::
+![](figuras/perguntas.png){fig-alt="Perguntas" fig-align="center" width=35%}
 
 
 
