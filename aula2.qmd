@@ -89,13 +89,13 @@ Enquanto dados estruturados são mais fáceis de serem processados, os não estr
 ::::
 
 ## **Formatos de Dados**
-::::{style='height: 70%; align-items: center; display: flex !important;'}
+:::{style='height: 70%; align-items: center; display: flex !important;'}
 - Os formatos de dados não se resumem apenas a [estruturados]{.alert} e [não estruturados]{.alert}.
 - Existe um **outro formato** que fica entre esses dois: o [semi-estruturado]{.alert}.
   - Apresentam **alguma estrutura** em **parte** dos dados.
   - Exemplos: e-mails, arquivos XML.
 - Vale observar que grande parte das técnicas utilizadas para [análise de dados]{.alert} funcionam apenas para [dados estruturados]{.alert}.
-::::
+:::
 
 ## **Dados Não Rotulados *versus* Dados Rotulados**
 ::::{.columns style='height: 40%; align-items: center; display: flex !important; font-size: 0.8em;' .fragment}
@@ -182,43 +182,76 @@ A [execução]{.alert} de um [projeto]{.alert} de ciência de dados envolve as [
 
 ##  **Qualidade dos Dados**
 :::{style='font-size: 0.9em;'}
-Dentre os problemas comuns de qualidade dos dados, podemos destacar:
+Dentre os [problemas comuns]{.alert} de qualidade dos dados, podemos destacar:
 
-- **Inconsistências**: [Valores inconsistentes]{.alert} de atributos ou [informações conflitantes]{.alert}. 
-  - Exemplo: um registro de uma pessoa com 3 anos que tem formação em curso de nível superior.
-- **Ruídos e *Outliers***: Dados que contêm [erros]{.alert} e [valores atípicos]{.alert} que podem distorcer a análise. 
-  - Exemplo de ruído: um registro de temperatura corporal que indica um valor de 50 °C (biologicamente impossível).
-  - Exemplo de outlier: um registro de peso de uma pessoa que indica um valor de 180 kg (biologicamente improvável).
-- **Valores ausentes**: [Ausência de valores]{.alert} de atributos. 
-  - Exemplo: um registro de paciente que não tem o peso registrado.
+- [Inconsistências]{.alert}: Valores inconsistentes de atributos ou informações conflitantes. 
+  - **Exemplo:** um registro de uma pessoa com 3 anos que tem formação em curso de nível superior.
+- [Ruídos e *Outliers*]{.alert}: Dados que contêm erros e valores atípicos que podem distorcer a análise. 
+  - **Exemplo de ruído:** um registro de temperatura corporal que indica um valor de 50 °C (biologicamente impossível).
+  - **Exemplo de *outlier*:** um registro de peso de uma pessoa que indica um valor de 180 kg (biologicamente improvável).
+- [Valores ausentes]{.alert}: Ausência de valores de atributos. 
+  - **Exemplo:** um registro de paciente que não tem o peso registrado.
 :::
 
-## Inconsistências
-Como surgem os dados inconsistentes?
+## **Inconsistências**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
 
-- Erro humano no momento da coleta de dados.
-- Erros gerados pelos equipamentos de coleta de dados.
-- Erros provenientes da integração de diferentes bases de dados:
+[Como surgem]{.alert} os dados inconsistentes?
+
+- [Erro]{.alert} humano no momento da [coleta]{.alert} de dados.
+- [Erros]{.alert} gerados pelos [equipamentos de coleta]{.alert} de dados.
+- [Erros]{.alert} provenientes da [integração]{.alert} de diferentes [bases]{.alert} de dados:
   - Mesmo atributo contendo diferentes codificações.
   - Duplicação de instâncias.
-
-## Inconsistências
-:::{style='font-size: 0.9em;'}
-Como encontrar as inconsistências?
-
-- Usar todo conhecimento obtido a partir de uma análise prévia dos dados:
-  - Quais tipos de dado e domínio de cada atributo da base de dados?
-  - Quais são os valores aceitáveis para cada atributo?
-  - Todos os valores do atributo estão contidos no conjunto de valores aceitáveis?
-  - A partir de descritores estatísticos (medidas de tendência central e de dispersão) é possível identificar valores atípicos?
-- Verificar inconsistências na representação dos dados (p.ex., datas como 08/03/2026 e 2026/03/08).
-- Avaliar se existem regras para os atributos (p.ex.: o atributo pode conter valores nulos?).
 :::
 
-## Inconsistências
-Como corrigir as inconsistências?
+## **Inconsistências**
+:::{style='font-size: 0.9em;'}
+[Como encontrar]{.alert} as inconsistências?
 
-- Escrever seu próprio código para detectar e corrigir inconsistências.
-- Usar técnicas de detecção e correção de inconsistências, como:
-  - Regras de consistência: definir regras para verificar a consistência dos dados e corrigir os dados que violam essas regras.
-  - Algoritmos de detecção de duplicatas: identificar e remover instâncias duplicadas.
+- Usar todo [conhecimento obtido]{.alert} a partir de uma [análise prévia]{.alert} dos dados:
+  - Quais [tipos de dado]{.alert} e [domínio]{.alert} de cada atributo da base de dados?
+  - Quais são os [valores aceitáveis]{.alert} para cada atributo?
+  - Todos os [valores do atributo]{.alert} estão contidos no conjunto de [valores aceitáveis]{.alert}?
+  - A partir de [descritores estatísticos]{.alert} (medidas de tendência central e de dispersão) é possível [identificar valores atípicos]{.alert}?
+- Verificar [inconsistências]{.alert} na [representação dos dados]{.alert} (p.ex., datas como 08/03/2026 e 2026/03/08).
+- [Avaliar]{.alert} se existem [regras]{.alert} para os atributos (p.ex.: o atributo pode conter valores nulos?).
+:::
+
+## **Inconsistências**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+[Como corrigir]{.alert} as inconsistências?
+
+- [Escrever]{.alert} seu [próprio código]{.alert} para detectar e corrigir inconsistências.
+- [Usar técnicas]{.alert} de [detecção]{.alert} e [correção]{.alert} de inconsistências, como:
+  - [Regras de consistência]{.alert}: definir regras para verificar a consistência dos dados e corrigir os dados que violam essas regras.
+  - [Algoritmos de detecção de duplicatas]{.alert}: identificar e remover instâncias duplicadas.
+:::
+
+## **Ruídos**
+Ruídos são resultantes de [desvios aleatórios]{.alert} ou [erros sistemáticos]{.alert} na coleta ou registro dos dados.
+
+- [Desvios aleatórios]{.alert}: erros que ocorrem de [forma imprevisível]{.alert} e [sem um padrão]{.alert} específico. 
+  - **Exemplo:** um sensor de temperatura que ocasionalmente registra um valor incorreto devido a uma falha momentânea.
+- [Erros sistemáticos]{.alert}: erros que ocorrem de [forma consistente]{.alert}, geralmente devido a um problema no processo de coleta ou registro dos dados. 
+  - **Exemplo:** um sensor de temperatura que está mal calibrado e registra consistentemente valores mais altos do que a temperatura real.
+
+
+## **Ruídos**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+[Quais as consequências]{.alert} dos ruídos no processo de mineração de dados?
+
+- Aumento do [tempo de processamento]{.alert} para geração dos modelos.
+- Aumento da [complexidade dos modelos]{.alert} gerados, o que pode reduzir o desempenho dos modelos.
+
+::: {.callout-tip .fragment}
+### Identificação de ruídos
+Geralmente é **difícil ter certeza** de que um valor **é um ruído**. A menos que o valor seja inconsistente, tem-se apenas uma **suspeita** de que o valor seja um ruído.
+:::
+[Uma vez identificados os ruídos, eles podem ser tratados de [maneira semelhante ao tratamento de valores ausentes]{.alert}]{.fragment}.
+:::
+
+## ***Outliers***
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+*Outliers* são valores atípicos que se diferenciam significativamente dos demais dados.
+:::
