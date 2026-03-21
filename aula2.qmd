@@ -154,12 +154,13 @@ Enquanto dados estruturados são mais fáceis de serem processados, os não estr
 # **Etapas de um Projeto de Ciência de Dados** {background-color="#0efb45ce" style="text-align: center;"}
 
 ## **Etapas de um Projeto**
-:::{style='font-size: 0.9em;'}
+:::{style='font-size: 0.8em;'}
 A [execução]{.alert} de um [projeto]{.alert} de ciência de dados envolve as [diversas etapas]{.alert}:
 
 - **Entendimento do domínio da aplicação**: [Compreender o problema]{.alert} a ser resolvido, identificando os [objetivos do projeto]{.alert} do ponto de vista do [cliente]{.alert}.
 - **Coleta de dados**: [Reunir os dados]{.alert} necessários para a análise.
-- **Pré-processamento de dados**: [Limpar]{.alert} o conjunto de [dados]{.alert}, identificar e remover [ruídos]{.alert}, tratar [valores ausentes]{.alert}, reduzir a [dimensionalidade]{.alert} dos dados, [transformar]{.alert} e preparar os dados para [análise]{.alert}, garantindo sua [qualidade e adequação]{.alert}.
+- **Pré-processamento de dados**: [Detectar]{.alert} e [corrigir problemas nos dados]{.alert} visando melhorar a qualidade dos mesmos. Inclui tarefas como identificação e remoção de [ruídos]{.alert}, tratamento de [valores ausentes]{.alert} e de [inconsistências]{.alert}.
+- **Transformação de dados**: [Transformar os dados]{.alert} para um [formato adequado]{.alert} para a análise dos mesmos. Inclui tarefas como [normalização]{.alert} e [discretização]{.alert} de dados.
 - **Modelagem**: [Escolher e aplicar]{.alert} os [algoritmos]{.alert} para [construir modelos]{.alert} preditivos ou descritivos, dependendo do objetivo do projeto.
 - **Avaliação**: [Avaliar o desempenho]{.alert} dos modelos utilizando métricas apropriadas e [validar os resultados]{.alert}.
 - **Implantação**: [Implantar os modelos]{.alert} em um [ambiente de produção]{.alert} para que possam ser utilizados pelo cliente.
@@ -168,11 +169,56 @@ A [execução]{.alert} de um [projeto]{.alert} de ciência de dados envolve as [
 ## **Processo de Descoberta de Conhecimento em Bases de Dados**
 ![](figuras/processoKDD.png){fig-alt="Processo KDD" fig-align="center" width=100%}
 
+# **Pré-processamento de Dados** {background-color="#0efb45ce" style="text-align: center;"}
+
 ## **Qualidade dos Dados**
 
-- A mineração de dados é muitas vezes aplicada a dados que foram coletados e armazenados por outros propósitos ou para aplicações futuras não especificadas. 
-  - Isso faz com que esses dados possam não ter a qualidade desejada para a mineração de dados.
-- Esses dados podem conter muitos erros, ruídos e valores ausentes, o que pode levar a resultados de mineração de dados imprecisos ou enganosos.
+- A [mineração de dados]{.alert} é muitas vezes [aplicada a dados]{.alert} que foram [coletados e armazenados]{.alert} por [outros propósitos]{.alert} ou para [aplicações futuras]{.alert} não especificadas. 
+  - Isso faz com que esses [dados]{.alert} possam [não ter a qualidade]{.alert} desejada para a mineração de dados.
+- Esses dados podem conter [inconsistências]{.alert}, [ruídos]{.alert} e [valores ausentes]{.alert}, o que pode levar a [resultados]{.alert} de mineração de dados [imprecisos ou enganosos]{.alert}.
 - Portanto, dois caminhos são possíveis para lidar com essa questão:
-  - Realizar pré-processamento para detectar e corrigir problemas de qualidade dos dados.
-  - Usar algoritmos que tenham a capacidade de lidar com dados de baixa qualidade. 
+  - [Realizar pré-processamento]{.alert} para detectar e corrigir problemas de qualidade dos dados.
+  - Usar [algoritmos]{.alert} que tenham a capacidade de [lidar]{.alert} com [dados]{.alert} de [baixa qualidade]{.alert}. 
+
+##  **Qualidade dos Dados**
+:::{style='font-size: 0.9em;'}
+Dentre os problemas comuns de qualidade dos dados, podemos destacar:
+
+- **Inconsistências**: [Valores inconsistentes]{.alert} de atributos ou [informações conflitantes]{.alert}. 
+  - Exemplo: um registro de uma pessoa com 3 anos que tem formação em curso de nível superior.
+- **Ruídos e *Outliers***: Dados que contêm [erros]{.alert} e [valores atípicos]{.alert} que podem distorcer a análise. 
+  - Exemplo de ruído: um registro de temperatura corporal que indica um valor de 50 °C (biologicamente impossível).
+  - Exemplo de outlier: um registro de peso de uma pessoa que indica um valor de 180 kg (biologicamente improvável).
+- **Valores ausentes**: [Ausência de valores]{.alert} de atributos. 
+  - Exemplo: um registro de paciente que não tem o peso registrado.
+:::
+
+## Inconsistências
+Como surgem os dados inconsistentes?
+
+- Erro humano no momento da coleta de dados.
+- Erros gerados pelos equipamentos de coleta de dados.
+- Erros provenientes da integração de diferentes bases de dados:
+  - Mesmo atributo contendo diferentes codificações.
+  - Duplicação de instâncias.
+
+## Inconsistências
+:::{style='font-size: 0.9em;'}
+Como encontrar as inconsistências?
+
+- Usar todo conhecimento obtido a partir de uma análise prévia dos dados:
+  - Quais tipos de dado e domínio de cada atributo da base de dados?
+  - Quais são os valores aceitáveis para cada atributo?
+  - Todos os valores do atributo estão contidos no conjunto de valores aceitáveis?
+  - A partir de descritores estatísticos (medidas de tendência central e de dispersão) é possível identificar valores atípicos?
+- Verificar inconsistências na representação dos dados (p.ex., datas como 08/03/2026 e 2026/03/08).
+- Avaliar se existem regras para os atributos (p.ex.: o atributo pode conter valores nulos?).
+:::
+
+## Inconsistências
+Como corrigir as inconsistências?
+
+- Escrever seu próprio código para detectar e corrigir inconsistências.
+- Usar técnicas de detecção e correção de inconsistências, como:
+  - Regras de consistência: definir regras para verificar a consistência dos dados e corrigir os dados que violam essas regras.
+  - Algoritmos de detecção de duplicatas: identificar e remover instâncias duplicadas.
