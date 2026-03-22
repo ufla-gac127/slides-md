@@ -286,7 +286,6 @@ Ruídos são resultantes de [desvios aleatórios]{.alert} ou [erros sistemático
 
 
 ## **Ruídos**
-::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
 [Quais as consequências]{.alert} dos ruídos no processo de mineração de dados?
 
 - Aumento do [tempo de processamento]{.alert} para geração dos modelos.
@@ -360,3 +359,14 @@ Questões a serem consideradas durante a integração:
 [Como ela ocorre?]{.alert .fragment}
 
 - Por meio da [transformação]{.alert} dos [valores atuais]{.alert} dos atributos em [outro conjunto de valores]{.alert} que sejam mais adequados para a etapa de mineração de dados. 
+
+## **Transformação de Dados**
+
+A transformação de dados pode envolver:
+
+- [Anonimização de dados]{.alert}: para remoção de ruídos.  
+- [Geração de hierarquia de conceitos]{.alert}: dados primitivos são substituídos por conceitos de ordem superior utilizando-se uma hierarquia de conceitos. 
+  - **Exemplo:** atributo Rua $\rightarrow$ atributo Cidade ou País.  
+- [Normalização]{.alert}: ajuste de escala.
+- [Discretização]{.alert}: reduz a quantidade de valores de um atributo contínuo pela divisão da amplitude em intervalos. Os rótulos dos intervalos substituem os valores originais.  
+
