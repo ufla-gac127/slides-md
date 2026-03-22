@@ -169,7 +169,7 @@ A [execução]{.alert} de um [projeto]{.alert} de ciência de dados envolve as [
 ## **Processo de Descoberta de Conhecimento em Bases de Dados**
 ![](figuras/processoKDD.png){fig-alt="Processo KDD" fig-align="center" width=100%}
 
-# **Pré-processamento de Dados** {background-color="#0efb45ce" style="text-align: center;"}
+# **Pré-processamento de Dados<br><br>[Limpeza de Dados]{.fontsize80}** {background-color="#0efb45ce" style="text-align: center;"}
 
 ## **Qualidade dos Dados**
 
@@ -186,11 +186,11 @@ Dentre os [problemas comuns]{.alert} de qualidade dos dados, podemos destacar:
 
 - [Inconsistências]{.alert}: Valores inconsistentes de atributos ou informações conflitantes. 
   - **Exemplo:** um registro de uma pessoa com 3 anos que tem formação em curso de nível superior.
-- [Ruídos e *Outliers*]{.alert}: Dados que contêm erros e valores atípicos que podem distorcer a análise. 
-  - **Exemplo de ruído:** um registro de temperatura corporal que indica um valor de 50 °C (biologicamente impossível).
-  - **Exemplo de *outlier*:** um registro de peso de uma pessoa que indica um valor de 180 kg (biologicamente improvável).
 - [Valores ausentes]{.alert}: Ausência de valores de atributos. 
   - **Exemplo:** um registro de paciente que não tem o peso registrado.
+- [Ruídos e *outliers*]{.alert}: Dados que contêm erros e valores atípicos que podem distorcer a análise. 
+  - **Exemplo de ruído:** um registro de temperatura corporal que indica um valor de 50 °C (biologicamente impossível).
+  - **Exemplo de *outlier*:** um registro de peso de uma pessoa que indica um valor de 180 kg (biologicamente improvável).
 :::
 
 ## **Inconsistências**
@@ -228,6 +228,54 @@ Dentre os [problemas comuns]{.alert} de qualidade dos dados, podemos destacar:
   - [Algoritmos de detecção de duplicatas]{.alert}: identificar e remover instâncias duplicadas.
 :::
 
+## **Valores Ausentes**
+::: {.nonincremental}
+[Valores de atributos ]{.alert}(dados) nem sempre estão disponíveis.
+
+  - **Exemplo:** vários registros de uma base de dados de vendas não possuem valores para o atributo [salário do consumidor]{.alert}.
+:::
+
+:::{.fragment }
+A [ausência]{.alert} de dados pode ser [resultado de]{.alert}:
+
+  - Mau funcionamento de equipamento.
+  - Inconsistência com outros dados armazenados e, portanto, apagado.
+  - Dado não inserido devido à falta de entendimento.
+  - Dado foi considerado sem importância no momento da coleta.
+:::
+
+## **Valores Ausentes**
+:::{style='font-size: 0.95em;'}
+[Como lidar]{.alert} com os valores ausentes de atributos?
+
+::: {.incremental}
+
+- [Ignorar o registro]{.alert} (instância): usualmente utilizado quando o atributo classe possui valor desconhecido ou quando a instância contém muitos valores de atributos desconhecidos.
+
+- [Preencher]{.alert} os valores ausentes [manualmente]{.alert}: tedioso + inviável?
+
+- [Usar]{.alert} uma [constante global]{.alert} para preencher os valores ausentes: "desconhecido".
+
+- [Usar]{.alert} uma [medida de tendência central]{.alert} do atributo (p. ex. média, moda) para preencher os valores ausentes.
+
+- [Usar]{.alert} uma [medida de tendência central]{.alert} das [instâncias]{.alert} pertencentes à [mesma classe da instância]{.alert} que possui o valor ausente.
+
+- [Utilizar]{.alert} o [valor mais provável]{.alert} para preencher o valor ausente: regressão, inferência Bayesiana, árvores de decisão etc.
+
+:::
+:::
+
+## **Valores Ausentes**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+
+::: {.callout-tip .nonincremental}
+### Observação
+[Alguns algoritmos]{.alert} de mineração de dados possuem [mecanismos internos]{.alert} capazes de [lidar com valores ausentes]{.alert} durante o processo de [construção do modelo]{.alert}, sem a necessidade de pré-processamento para preenchimento dos valores ausentes.
+
+- **Exemplos:** comitês de árvores de decisão, Naive Bayes e k-vizinhos mais próximos.
+:::
+:::
+
 ## **Ruídos**
 Ruídos são resultantes de [desvios aleatórios]{.alert} ou [erros sistemáticos]{.alert} na coleta ou registro dos dados.
 
@@ -245,7 +293,7 @@ Ruídos são resultantes de [desvios aleatórios]{.alert} ou [erros sistemático
 - Aumento da [complexidade dos modelos]{.alert} gerados, o que pode reduzir o desempenho dos modelos.
 
 ::: {.callout-tip .fragment}
-### Identificação de ruídos
+### Observação
 Geralmente é **difícil ter certeza** de que um valor **é um ruído**. A menos que o valor seja inconsistente, tem-se apenas uma **suspeita** de que o valor seja um ruído.
 :::
 [Uma vez identificados os ruídos, eles podem ser tratados de [maneira semelhante ao tratamento de valores ausentes]{.alert}]{.fragment}.
@@ -264,3 +312,51 @@ Geralmente é **difícil ter certeza** de que um valor **é um ruído**. A menos
 A identificação de valores atípicos pode ser feita por meio de [descritores estatísticos]{.alert} (p.ex., valores que estão a mais de 3 desvios padrão da média), por meio de [visualizações]{.alert} (p.ex., boxplots) ou com [uso de algoritmos]{.alert} de agrupamento.
 :::
 ![](figuras/identificacaoOutliers.png){fig-alt="Identificacao Outliers" fig-align="center" width=80%}
+
+# **Pré-processamento de Dados<br><br>[Integração de Dados]{.fontsize80}** {background-color="#0efb45ce" style="text-align: center;"}
+
+## **Integração de Dados**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+::: {.incremental}
+[Finalidade da integração de dados:]{.alert} combinar dados de [múltiplas fontes]{.alert} em uma [única fonte]{.alert} de forma coerente. As fontes podem ser diversas bases de dados, cubos de dados ou arquivos de texto.
+
+- Integração de dados é muito comum em processos de mineração de dados.
+- Uma integração cuidadosa pode evitar redundâncias e inconsistências nos dados.
+:::
+:::
+
+## **Integração de Dados**
+:::{style='font-size: 0.85em;'}
+Questões a serem consideradas durante a integração:
+
+- [Problema da identificação de entidades:]{.alert} identificação das mesmas entidades do mundo real a partir de múltiplas fontes de dados.
+
+  - **Exemplo:** Como um analista saberá se `customer_id` em uma base de dados e `cust_number` em outra base de dados correspondem ao mesmo atributo?<br>[**R.:** Uso de metadados.]{.fragment}
+    
+  
+- [Redundância em termos de atributos:]{.alert} dados redundantes ocorrem com frequência quando integramos dados de múltiplas fontes.
+  - O [mesmo atributo]{.alert} pode ter [nomes diferentes]{.alert} em [bases]{.alert} de dados [distintas]{.alert}.
+  - Um [atributo]{.alert} pode ter sido [derivado]{.alert} de outro atributo em outra tabela.
+
+- [Como detectar]{.alert} redundâncias entre atributos?<br>[**R.:** Análise de correlação (Teste $\chi^2$, Coeficiente de Correlação de Pearson etc.).]{.fragment}
+
+- [Redundância em termos de registros:]{.alert} duplicação de instâncias.
+:::
+
+# **Transformação de Dados** {background-color="#0efb45ce" style="text-align: center;"}
+
+## **Transformação de Dados**
+:::{.nonincremental}
+[Objetivo:]{.alert} 
+
+- Colocar os dados de forma apropriada para a etapa de mineração.
+:::
+
+[ Benefícios da transformação de dados:]{.alert .fragment}
+
+- Tornar a etapa de mineração de dados mais eficiente.
+- Obter padrões mais fáceis de serem entendidos.
+
+[Como ela ocorre?]{.alert .fragment}
+
+- Por meio da [transformação]{.alert} dos [valores atuais]{.alert} dos atributos em [outro conjunto de valores]{.alert} que sejam mais adequados para a etapa de mineração de dados. 

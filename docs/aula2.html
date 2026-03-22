@@ -447,8 +447,8 @@
 </div>
 </section></section>
 <section>
-<section id="pré-processamento-de-dados" class="title-slide slide level1 center" data-background-color="#0efb45ce" style="text-align: center;">
-<h1><strong>Pré-processamento de Dados</strong></h1>
+<section id="pré-processamento-de-dados-limpeza-de-dados" class="title-slide slide level1 center" data-background-color="#0efb45ce" style="text-align: center;">
+<h1><strong>Pré-processamento de Dados<br><br><span class="fontsize80">Limpeza de Dados</span></strong></h1>
 
 </section>
 <section id="qualidade-dos-dados" class="slide level2">
@@ -475,14 +475,14 @@
 <ul>
 <li class="fragment"><strong>Exemplo:</strong> um registro de uma pessoa com 3 anos que tem formação em curso de nível superior.</li>
 </ul></li>
-<li class="fragment"><span class="alert">Ruídos e <em>Outliers</em></span>: Dados que contêm erros e valores atípicos que podem distorcer a análise.
-<ul>
-<li class="fragment"><strong>Exemplo de ruído:</strong> um registro de temperatura corporal que indica um valor de 50 °C (biologicamente impossível).</li>
-<li class="fragment"><strong>Exemplo de <em>outlier</em>:</strong> um registro de peso de uma pessoa que indica um valor de 180 kg (biologicamente improvável).</li>
-</ul></li>
 <li class="fragment"><span class="alert">Valores ausentes</span>: Ausência de valores de atributos.
 <ul>
 <li class="fragment"><strong>Exemplo:</strong> um registro de paciente que não tem o peso registrado.</li>
+</ul></li>
+<li class="fragment"><span class="alert">Ruídos e <em>outliers</em></span>: Dados que contêm erros e valores atípicos que podem distorcer a análise.
+<ul>
+<li class="fragment"><strong>Exemplo de ruído:</strong> um registro de temperatura corporal que indica um valor de 50 °C (biologicamente impossível).</li>
+<li class="fragment"><strong>Exemplo de <em>outlier</em>:</strong> um registro de peso de uma pessoa que indica um valor de 180 kg (biologicamente improvável).</li>
 </ul></li>
 </ul>
 </div>
@@ -533,6 +533,57 @@
 </ul>
 </div>
 </section>
+<section id="valores-ausentes" class="slide level2">
+<h2><strong>Valores Ausentes</strong></h2>
+<p><span class="alert">Valores de atributos</span>(dados) nem sempre estão disponíveis.</p>
+<ul>
+<li><strong>Exemplo:</strong> vários registros de uma base de dados de vendas não possuem valores para o atributo <span class="alert">salário do consumidor</span>.</li>
+</ul>
+<div class="fragment">
+<p>A <span class="alert">ausência</span> de dados pode ser <span class="alert">resultado de</span>:</p>
+<ul>
+<li class="fragment">Mau funcionamento de equipamento.</li>
+<li class="fragment">Inconsistência com outros dados armazenados e, portanto, apagado.</li>
+<li class="fragment">Dado não inserido devido à falta de entendimento.</li>
+<li class="fragment">Dado foi considerado sem importância no momento da coleta.</li>
+</ul>
+</div>
+</section>
+<section id="valores-ausentes-1" class="slide level2">
+<h2><strong>Valores Ausentes</strong></h2>
+<div style="font-size: 0.95em;">
+<p><span class="alert">Como lidar</span> com os valores ausentes de atributos?</p>
+<ul>
+<li class="fragment"><p><span class="alert">Ignorar o registro</span> (instância): usualmente utilizado quando o atributo classe possui valor desconhecido ou quando a instância contém muitos valores de atributos desconhecidos.</p></li>
+<li class="fragment"><p><span class="alert">Preencher</span> os valores ausentes <span class="alert">manualmente</span>: tedioso + inviável?</p></li>
+<li class="fragment"><p><span class="alert">Usar</span> uma <span class="alert">constante global</span> para preencher os valores ausentes: “desconhecido”.</p></li>
+<li class="fragment"><p><span class="alert">Usar</span> uma <span class="alert">medida de tendência central</span> do atributo (p.&nbsp;ex. média, moda) para preencher os valores ausentes.</p></li>
+<li class="fragment"><p><span class="alert">Usar</span> uma <span class="alert">medida de tendência central</span> das <span class="alert">instâncias</span> pertencentes à <span class="alert">mesma classe da instância</span> que possui o valor ausente.</p></li>
+<li class="fragment"><p><span class="alert">Utilizar</span> o <span class="alert">valor mais provável</span> para preencher o valor ausente: regressão, inferência Bayesiana, árvores de decisão etc.</p></li>
+</ul>
+</div>
+</section>
+<section id="valores-ausentes-2" class="slide level2">
+<h2><strong>Valores Ausentes</strong></h2>
+<div style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observação</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="alert">Alguns algoritmos</span> de mineração de dados possuem <span class="alert">mecanismos internos</span> capazes de <span class="alert">lidar com valores ausentes</span> durante o processo de <span class="alert">construção do modelo</span>, sem a necessidade de pré-processamento para preenchimento dos valores ausentes.</p>
+<ul>
+<li><strong>Exemplos:</strong> comitês de árvores de decisão, Naive Bayes e k-vizinhos mais próximos.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="ruídos" class="slide level2">
 <h2><strong>Ruídos</strong></h2>
 <p>Ruídos são resultantes de <span class="alert">desvios aleatórios</span> ou <span class="alert">erros sistemáticos</span> na coleta ou registro dos dados.</p>
@@ -562,7 +613,7 @@
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Identificação de ruídos</strong></p>
+<p><strong>Observação</strong></p>
 </div>
 <div class="callout-content">
 <p>Geralmente é <strong>difícil ter certeza</strong> de que um valor <strong>é um ruído</strong>. A menos que o valor seja inconsistente, tem-se apenas uma <strong>suspeita</strong> de que o valor seja um ruído.</p>
@@ -593,6 +644,61 @@
 <p><img data-src="figuras/identificacaoOutliers.png" class="quarto-figure quarto-figure-center" style="width:80.0%" alt="Identificacao Outliers"></p>
 </figure>
 </div>
+</section></section>
+<section>
+<section id="pré-processamento-de-dados-integração-de-dados" class="title-slide slide level1 center" data-background-color="#0efb45ce" style="text-align: center;">
+<h1><strong>Pré-processamento de Dados<br><br><span class="fontsize80">Integração de Dados</span></strong></h1>
+
+</section>
+<section id="integração-de-dados" class="slide level2">
+<h2><strong>Integração de Dados</strong></h2>
+<div style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+<p><span class="alert">Finalidade da integração de dados:</span> combinar dados de <span class="alert">múltiplas fontes</span> em uma <span class="alert">única fonte</span> de forma coerente. As fontes podem ser diversas bases de dados, cubos de dados ou arquivos de texto.</p>
+<ul>
+<li class="fragment">Integração de dados é muito comum em processos de mineração de dados.</li>
+<li class="fragment">Uma integração cuidadosa pode evitar redundâncias e inconsistências nos dados.</li>
+</ul>
+</div>
+</section>
+<section id="integração-de-dados-1" class="slide level2">
+<h2><strong>Integração de Dados</strong></h2>
+<div style="font-size: 0.85em;">
+<p>Questões a serem consideradas durante a integração:</p>
+<ul>
+<li class="fragment"><p><span class="alert">Problema da identificação de entidades:</span> identificação das mesmas entidades do mundo real a partir de múltiplas fontes de dados.</p>
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> Como um analista saberá se <code>customer_id</code> em uma base de dados e <code>cust_number</code> em outra base de dados correspondem ao mesmo atributo?<br><span class="fragment"><strong>R.:</strong> Uso de metadados.</span></li>
+</ul></li>
+<li class="fragment"><p><span class="alert">Redundância em termos de atributos:</span> dados redundantes ocorrem com frequência quando integramos dados de múltiplas fontes.</p>
+<ul>
+<li class="fragment">O <span class="alert">mesmo atributo</span> pode ter <span class="alert">nomes diferentes</span> em <span class="alert">bases</span> de dados <span class="alert">distintas</span>.</li>
+<li class="fragment">Um <span class="alert">atributo</span> pode ter sido <span class="alert">derivado</span> de outro atributo em outra tabela.</li>
+</ul></li>
+<li class="fragment"><p><span class="alert">Como detectar</span> redundâncias entre atributos?<br><span class="fragment"><strong>R.:</strong> Análise de correlação (Teste <span class="math inline">\(\chi^2\)</span>, Coeficiente de Correlação de Pearson etc.).</span></p></li>
+<li class="fragment"><p><span class="alert">Redundância em termos de registros:</span> duplicação de instâncias.</p></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="transformação-de-dados" class="title-slide slide level1 center" data-background-color="#0efb45ce" style="text-align: center;">
+<h1><strong>Transformação de Dados</strong></h1>
+
+</section>
+<section id="transformação-de-dados-1" class="slide level2">
+<h2><strong>Transformação de Dados</strong></h2>
+<p><span class="alert">Objetivo:</span></p>
+<ul>
+<li>Colocar os dados de forma apropriada para a etapa de mineração.</li>
+</ul>
+<p><span class="alert fragment">Benefícios da transformação de dados:</span></p>
+<ul>
+<li class="fragment">Tornar a etapa de mineração de dados mais eficiente.</li>
+<li class="fragment">Obter padrões mais fáceis de serem entendidos.</li>
+</ul>
+<p><span class="alert fragment">Como ela ocorre?</span></p>
+<ul>
+<li class="fragment">Por meio da <span class="alert">transformação</span> dos <span class="alert">valores atuais</span> dos atributos em <span class="alert">outro conjunto de valores</span> que sejam mais adequados para a etapa de mineração de dados.</li>
+</ul>
 
 </section></section>
     </div>
