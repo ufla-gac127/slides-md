@@ -364,9 +364,18 @@ Questões a serem consideradas durante a integração:
 
 A transformação de dados pode envolver:
 
-- [Anonimização de dados]{.alert}: para remoção de ruídos.  
-- [Geração de hierarquia de conceitos]{.alert}: dados primitivos são substituídos por conceitos de ordem superior utilizando-se uma hierarquia de conceitos. 
+- [Anonimização de dados]{.alert}: ocultação ou remoção de dados sensíveis.  
+- [Geração de hierarquia de conceitos]{.alert}: substituição de dados primitivos por conceitos de ordem superior utilizando-se uma hierarquia de conceitos. 
   - **Exemplo:** atributo Rua $\rightarrow$ atributo Cidade ou País.  
 - [Normalização]{.alert}: ajuste de escala.
-- [Discretização]{.alert}: reduz a quantidade de valores de um atributo contínuo pela divisão da amplitude em intervalos. Os rótulos dos intervalos substituem os valores originais.  
+- [Discretização]{.alert}: redução da quantidade de valores de um atributo contínuo pela divisão da amplitude em intervalos. Os rótulos dos intervalos substituem os valores originais.  
 
+## **Anonimização de Dados**
+[Anonimização de dados]{.alert} é o processo de ocultar ou remover dados sensíveis para proteger a privacidade dos indivíduos ou organizações envolvidos.
+- O processo de anonimização deve englobar informações que possam identificar alguém direta ou indiretamente.
+  - [Exemplo de dados sensíveis:]{.alert} nome, e-mail, endereço, foto, número de telefone, CPF, RG, número de cartão de crédito etc.
+[Técnicas de anonimização:]{.alert}
+- [Supressão]{.alert}: remoção completa de dados sensíveis.
+- [Generalização]{.alert}: substituição de dados sensíveis por valores mais generais.
+- [Perturbação]{.alert}: adição de ruído aos dados sensíveis para torná-los menos identificáveis.
+- [Criptografia]{.alert}: transformação de dados sensíveis em um formato ilegível sem a chave de descriptografia.
