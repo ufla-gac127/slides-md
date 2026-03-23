@@ -361,21 +361,69 @@ Questões a serem consideradas durante a integração:
 - Por meio da [transformação]{.alert} dos [valores atuais]{.alert} dos atributos em [outro conjunto de valores]{.alert} que sejam mais adequados para a etapa de mineração de dados. 
 
 ## **Transformação de Dados**
+:::{style='font-size: 0.9em;'}
 
 A transformação de dados pode envolver:
 
 - [Anonimização de dados]{.alert}: ocultação ou remoção de dados sensíveis.  
 - [Geração de hierarquia de conceitos]{.alert}: substituição de dados primitivos por conceitos de ordem superior utilizando-se uma hierarquia de conceitos. 
-  - **Exemplo:** atributo Rua $\rightarrow$ atributo Cidade ou País.  
-- [Normalização]{.alert}: ajuste de escala.
-- [Discretização]{.alert}: redução da quantidade de valores de um atributo contínuo pela divisão da amplitude em intervalos. Os rótulos dos intervalos substituem os valores originais.  
+  - **Exemplo:** atributo Rua $\rightarrow$ atributo Cidade ou País. 
+- [Transformação de dados numéricos]{.alert}: alteração do valor numérico de um atributo quantitativo para outro valor numérico. 
+  - **Exemplo:** normalização de dados.
+- [Conversão de dados entre tipos diferentes:]{.alert} alteração do tipo dos valores de um atributo. 
+  - **Exemplo:** conversão de um atributo numérico para um atributo categórico por meio da discretização.
+:::  
 
 ## **Anonimização de Dados**
-[Anonimização de dados]{.alert} é o processo de ocultar ou remover dados sensíveis para proteger a privacidade dos indivíduos ou organizações envolvidos.
-- O processo de anonimização deve englobar informações que possam identificar alguém direta ou indiretamente.
-  - [Exemplo de dados sensíveis:]{.alert} nome, e-mail, endereço, foto, número de telefone, CPF, RG, número de cartão de crédito etc.
-[Técnicas de anonimização:]{.alert}
+:::{style='font-size: 0.85em;'}
+É o processo de [ocultar]{.alert} ou [remover dados sensíveis]{.alert} para [proteger]{.alert} a [privacidade]{.alert} dos indivíduos ou organizações envolvidos.
+
+- O processo de anonimização deve englobar [informações]{.alert} que possam [identificar]{.alert} alguém [direta]{.alert} ou [indiretamente]{.alert}.
+  - **Exemplos de dados sensíveis:** nome, e-mail, endereço, foto, número de telefone, CPF, RG, número de cartão de crédito etc.
+
+[**Técnicas de Anonimização**]{.fragment}
+
 - [Supressão]{.alert}: remoção completa de dados sensíveis.
-- [Generalização]{.alert}: substituição de dados sensíveis por valores mais generais.
+- [Generalização]{.alert}: substituição de dados sensíveis por valores mais generais.<!-- **Exemplo:** substituição do número telefônico pelo código da região. (Isso impede de recuperar o valor original)-->
 - [Perturbação]{.alert}: adição de ruído aos dados sensíveis para torná-los menos identificáveis.
 - [Criptografia]{.alert}: transformação de dados sensíveis em um formato ilegível sem a chave de descriptografia.
+:::
+
+## **Anonimização de Dados**
+::: {.callout-note}
+## Observação
+Em uma base de dados, [cada atributo]{.alert} pode ser [anonimizado]{.alert} de uma [maneira diferente]{.alert} e a [estratégia]{.alert} de anonimização deve ser [escolhida]{.alert} com base no [tipo de dado]{.alert} existente.
+:::
+
+:::{style='font-size: 0.9em;'}
+[**Atributos Qualitativos:**]{.fragment}
+
+- [Nominais:]{.alert} basta preservar a mesma quantidade de valores, utilizando valores que não possibilitem a identificação dos objetos. 
+  - **Exemplo:** substituição do nome dos clientes por códigos alfanuméricos.
+- [Ordinais:]{.alert} deve-se preservar a ordem relativa dos valores, novamente utilizando valores que não possibilitem a identificação dos objetos. 
+  - **Exemplo:** substituição de uma escala de satisfação (insatisfeito, neutro, satisfeito, muito insatisfeito) por uma escala (1,2,3,4).
+:::
+
+## **Anonimização de Dados**
+::: {.callout-note}
+## Observação
+Em uma base de dados, [cada atributo]{.alert} pode ser [anonimizado]{.alert} de uma [maneira diferente]{.alert} e a [estratégia]{.alert} de anonimização deve ser [escolhida]{.alert} com base no [tipo de dado]{.alert} existente.
+:::
+
+:::{style='font-size: 0.9em;'}
+[**Atributos Quantitativos:**]{.fragment}
+
+- [Com perda de informação:]{.alert} pode-se usar a generalização, substituindo os valores por intervalos. 
+  - **Exemplo:** substituição da idade de clientes por faixas etárias (0-18, 19-35, 36-60, 60+).
+- [Sem perda de informação:]{.alert} pode-se usar a perturbação, adicionando uma valor constante aos valores numéricos. 
+  - **Exemplo:** adição de um valor constante à idade dos clientes.
+:::
+
+<!--
+
+## **Transformação de Dados Numéricos**
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+
+-->

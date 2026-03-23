@@ -914,18 +914,110 @@
 </section>
 <section id="transformação-de-dados-2" class="slide level2">
 <h2><strong>Transformação de Dados</strong></h2>
+<div style="font-size: 0.9em;">
 <p>A transformação de dados pode envolver:</p>
 <ul>
 <li class="fragment"><span class="alert">Anonimização de dados</span>: ocultação ou remoção de dados sensíveis.<br>
 </li>
 <li class="fragment"><span class="alert">Geração de hierarquia de conceitos</span>: substituição de dados primitivos por conceitos de ordem superior utilizando-se uma hierarquia de conceitos.
 <ul>
-<li class="fragment"><strong>Exemplo:</strong> atributo Rua <span class="math inline">\(\rightarrow\)</span> atributo Cidade ou País.<br>
-</li>
+<li class="fragment"><strong>Exemplo:</strong> atributo Rua <span class="math inline">\(\rightarrow\)</span> atributo Cidade ou País.</li>
 </ul></li>
-<li class="fragment"><span class="alert">Normalização</span>: ajuste de escala.</li>
-<li class="fragment"><span class="alert">Discretização</span>: redução da quantidade de valores de um atributo contínuo pela divisão da amplitude em intervalos. Os rótulos dos intervalos substituem os valores originais.</li>
+<li class="fragment"><span class="alert">Transformação de dados numéricos</span>: alteração do valor numérico de um atributo quantitativo para outro valor numérico.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> normalização de dados.</li>
+</ul></li>
+<li class="fragment"><span class="alert">Conversão de dados entre tipos diferentes:</span> alteração do tipo dos valores de um atributo.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> conversão de um atributo numérico para um atributo categórico por meio da discretização.</li>
+</ul></li>
 </ul>
+</div>
+</section>
+<section id="anonimização-de-dados" class="slide level2">
+<h2><strong>Anonimização de Dados</strong></h2>
+<div style="font-size: 0.85em;">
+<p>É o processo de <span class="alert">ocultar</span> ou <span class="alert">remover dados sensíveis</span> para <span class="alert">proteger</span> a <span class="alert">privacidade</span> dos indivíduos ou organizações envolvidos.</p>
+<ul>
+<li class="fragment">O processo de anonimização deve englobar <span class="alert">informações</span> que possam <span class="alert">identificar</span> alguém <span class="alert">direta</span> ou <span class="alert">indiretamente</span>.
+<ul>
+<li class="fragment"><strong>Exemplos de dados sensíveis:</strong> nome, e-mail, endereço, foto, número de telefone, CPF, RG, número de cartão de crédito etc.</li>
+</ul></li>
+</ul>
+<p><span class="fragment"><strong>Técnicas de Anonimização</strong></span></p>
+<ul>
+<li class="fragment"><span class="alert">Supressão</span>: remoção completa de dados sensíveis.</li>
+<li class="fragment"><span class="alert">Generalização</span>: substituição de dados sensíveis por valores mais generais.<!-- **Exemplo:** substituição do número telefônico pelo código da região. (Isso impede de recuperar o valor original)--></li>
+<li class="fragment"><span class="alert">Perturbação</span>: adição de ruído aos dados sensíveis para torná-los menos identificáveis.</li>
+<li class="fragment"><span class="alert">Criptografia</span>: transformação de dados sensíveis em um formato ilegível sem a chave de descriptografia.</li>
+</ul>
+</div>
+</section>
+<section id="anonimização-de-dados-1" class="slide level2">
+<h2><strong>Anonimização de Dados</strong></h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observação</strong></p>
+</div>
+<div class="callout-content">
+<p>Em uma base de dados, <span class="alert">cada atributo</span> pode ser <span class="alert">anonimizado</span> de uma <span class="alert">maneira diferente</span> e a <span class="alert">estratégia</span> de anonimização deve ser <span class="alert">escolhida</span> com base no <span class="alert">tipo de dado</span> existente.</p>
+</div>
+</div>
+</div>
+<div style="font-size: 0.9em;">
+<p><span class="fragment"><strong>Atributos Qualitativos:</strong></span></p>
+<ul>
+<li class="fragment"><span class="alert">Categóricos:</span> basta preservar a mesma quantidade de valores, utilizando valores que não possibilitem a identificação dos objetos.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> substituição do nome dos clientes por códigos alfanuméricos.</li>
+</ul></li>
+<li class="fragment"><span class="alert">Ordinais:</span> deve-se preservar a ordem relativa dos valores, novamente utilizando valores que não possibilitem a identificação dos objetos.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> substituição de uma escala de satisfação (insatisfeito, neutro, satisfeito, muito insatisfeito) por uma escala (1,2,3,4).</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="anonimização-de-dados-2" class="slide level2">
+<h2><strong>Anonimização de Dados</strong></h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observação</strong></p>
+</div>
+<div class="callout-content">
+<p>Em uma base de dados, <span class="alert">cada atributo</span> pode ser <span class="alert">anonimizado</span> de uma <span class="alert">maneira diferente</span> e a <span class="alert">estratégia</span> de anonimização deve ser <span class="alert">escolhida</span> com base no <span class="alert">tipo de dado</span> existente.</p>
+</div>
+</div>
+</div>
+<div style="font-size: 0.9em;">
+<p><span class="fragment"><strong>Atributos Quantitativos:</strong></span></p>
+<ul>
+<li class="fragment"><span class="alert">Com perda de informação:</span> pode-se usar a generalização, substituindo os valores por intervalos.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> substituição da idade de clientes por faixas etárias (0-18, 19-35, 36-60, 60+).</li>
+</ul></li>
+<li class="fragment"><span class="alert">Sem perda de informação:</span> pode-se usar a perturbação, adicionando uma valor constante aos valores numéricos.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> adição de um valor constante à idade dos clientes.</li>
+</ul></li>
+</ul>
+</div>
+<!--
+
+## **Transformação de Dados Numéricos**
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+
+-->
 <div class="quarto-auto-generated-content">
 <p><img src="figuras/logoUFLA.png" class="slide-logo"></p>
 <div class="footer footer-default">
