@@ -971,7 +971,7 @@
 <div style="font-size: 0.9em;">
 <p><span class="fragment"><strong>Atributos Qualitativos:</strong></span></p>
 <ul>
-<li class="fragment"><span class="alert">Categóricos:</span> basta preservar a mesma quantidade de valores, utilizando valores que não possibilitem a identificação dos objetos.
+<li class="fragment"><span class="alert">Nominais:</span> basta preservar a mesma quantidade de valores, utilizando valores que não possibilitem a identificação dos objetos.
 <ul>
 <li class="fragment"><strong>Exemplo:</strong> substituição do nome dos clientes por códigos alfanuméricos.</li>
 </ul></li>
@@ -1010,14 +1010,70 @@
 </ul></li>
 </ul>
 </div>
-<!--
-
-## **Transformação de Dados Numéricos**
-
-
-## **Conversão de Dados entre Tipos Diferentes**
-
--->
+</section>
+<section id="transformação-de-dados-numéricos" class="slide level2">
+<h2><strong>Transformação de Dados Numéricos</strong></h2>
+<div style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+<p>O <span class="alert">objetivo</span> dessa transformação é <span class="alert">alterar</span> a <span class="alert">variação</span> ou <span class="alert">espalhamento</span> dos valores numéricos originais.</p>
+<div class="fragment">
+<p>As duas <span class="alert">técnicas</span> mais <span class="alert">comuns</span> para <span class="alert">transformação</span> de dados numéricos são:</p>
+<ul>
+<li class="fragment">Aplicação de <span class="alert">funções matemáticas</span> simples.</li>
+<li class="fragment"><span class="alert">Normalização</span>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="transformação-de-dados-numéricos-1" class="slide level2">
+<h2><strong>Transformação de Dados Numéricos</strong></h2>
+<h3 id="funções-matemáticas-simples"><strong>Funções Matemáticas Simples</strong></h3>
+<div style="font-size: 0.95em;">
+<p>Uma <span class="alert">função matemática</span> simples é <span class="alert">aplicada</span> aos <span class="alert">valores</span> numéricos originais de um <span class="alert">atributo preditivo</span>.</p>
+<ul>
+<li class="fragment">Essa <span class="alert">transformação</span> altera a <span class="alert">distribuição de valores</span> de um atributo para atender alguma necessidade da aplicação.</li>
+</ul>
+<div class="fragment">
+<p><span class="alert">Funções</span> matemáticas comumente <span class="alert">utilizadas</span>:</p>
+<ul>
+<li class="fragment"><span class="alert">Função logarítmica:</span> usada para reduzir a escala de valores muito grandes.
+<ul>
+<li class="fragment">Para distribuições com cauda longa, ajuda a reduzir a influência de valores extremos, tornando a distribuição mais simétrica.</li>
+<li class="fragment"><strong>Exemplos:</strong> renda, faturamento, contagem de eventos (cliques).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="transformação-de-dados-numéricos-2" class="slide level2">
+<h2><strong>Transformação de Dados Numéricos</strong></h2>
+<h3 id="funções-matemáticas-simples-1"><strong>Funções Matemáticas Simples</strong></h3>
+<div style="font-size: 0.95em;">
+<p><span class="alert">Funções</span> matemáticas comumente <span class="alert">utilizadas:</span></p>
+<ul>
+<li class="fragment"><span class="alert">Função raiz quadrada:</span> usada para reduzir a escala de valores muito grandes, mas de forma menos agressiva do que a função logarítmica.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> Considere os seguintes valores de um atributo: 1, 10 e 100. A aplicação da função logarítmica (base 10) resultaria em 0, 1 e 2, respectivamente, enquanto a aplicação da função raiz quadrada resultaria em 1, 3.16 e 10, respectivamente.</li>
+</ul></li>
+<li class="fragment"><span class="alert">Inverso:</span> usada para transformar valores pequenos em valores grandes e vice-versa (para valores <span class="math inline">\(\neq\)</span> 0).</li>
+<li class="fragment"><span class="alert">Módulo:</span> usada para transformar valores negativos em valores positivos.</li>
+</ul>
+</div>
+</section>
+<section id="transformação-de-dados-numéricos-3" class="slide level2">
+<h2><strong>Transformação de Dados Numéricos</strong></h2>
+<h3 id="normalização-de-dados"><strong>Normalização de Dados</strong></h3>
+<p>Em alguns conjuntos de dados, os atributos numéricos podem ter <span class="alert">escalas muito diferentes</span>, o que pode afetar o desempenho de alguns algoritmos de mineração de dados.</p>
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> um conjunto de dados de clientes pode conter um atributo de idade (com valores entre 0 e 100) e um atributo de renda (com valores entre 1.000 e 30.000).</li>
+</ul>
+<p>E por que atributos com escalas muito diferentes podem afetar o desempenho de alguns algoritmos de mineração de dados?</p>
+<ul>
+<li class="fragment">Algoritmos baseados em distância (p.ex., k-NN e agrupamento hierárquico) podem ser influenciados por atributos com escalas maiores, fazendo com que esses atributos tenham maior influência no modelo do que atributos com escalas menores.</li>
+<li class="fragment">Algoritmos de otimização (p.ex., gradiente descendente) podem ter dificuldades para convergir quando os atributos têm escalas muito diferentes.</li>
+</ul>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <div class="quarto-auto-generated-content">
 <p><img src="figuras/logoUFLA.png" class="slide-logo"></p>
 <div class="footer footer-default">
