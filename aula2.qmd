@@ -487,7 +487,7 @@ Por que [atributos]{.alert} com escalas muito [diferentes]{.alert} podem [afetar
 Dentre as diferentes técnicas de normalização, podemos destacar:
 
 - Normalização por escala: transforma os valores de um atributo para um intervalo específico pré-definido, por exemplo [0, 1] ou [-1, 1].
-- Normalização por padronização ou variação: transforma os valores de um atributo em um conjunto de valores que terão média 0 e desvio padrão 1.
+- Normalização por padronização ou variação: transforma os valores de um atributo em um conjunto de valores que terá média 0 e desvio padrão 1.
 
 ## **Transformação de Dados Numéricos**
 ### **Normalização de Dados por Escala**
@@ -513,5 +513,52 @@ Quais são as desvantagens da normalização por escala?
 - Se o conjunto de dados de teste tiver um valor superior a $\text{max}(X)$ ou inferior a $\text{min}(X)$, os valores normalizados do conjunto de dados de teste estarão fora do intervalo normalizado definido para o conjunto de dados de treinamento.
   - Isso pode levar a resultados imprevisíveis durante a mineração de dados.
 
-## **Conversão de Dados entre Tipos Diferentes**
 
+## **Transformação de Dados Numéricos**
+### **Normalização de Dados por Padronização**
+A normalização por padronização, também denominada *z-score*, é realizada por meio da seguinte fórmula:
+
+:::{style='font-size: 0.9em;'}
+$$x_i' = \frac{x_i - \mu}{\sigma},$$
+:::
+:::{.nonincremental}
+onde:
+
+- $x_i$ é o valor original do atributo,
+- $\mu$ é a média do atributo $X$,
+- $\sigma$ é o desvio padrão do atributo $X$.
+:::
+
+## **Conversão de Dados entre Tipos Diferentes**
+Tipos de conversão:
+
+- [Atributo qualitativo para um atributo quantitativo:]{.alert} codificação de dados.
+  - **Exemplo:** conversão do atributo sexo (categórico) para o atributo sexo (numérico) por meio da codificação, onde "M" é codificado como 0 e "F" é codificado como 1.
+- [Atributo quantitativo para um atributo qualitativo:]{.alert} discretização de dados.
+  - **Exemplo:** conversão do atributo idade (numérico) para o atributo faixa etária (categórico) por meio da discretização.
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Qualitativo para Quantitativo**
+:::{style='font-size: 0.9em;'}
+A forma de fazer a conversão depende da existência ou não de uma [ordem natural]{.alert} entre os valores do atributo qualitativo.
+
+- [Atributos ordinais:]{.alert} existe uma ordem natural entre os valores, portanto, essa ordem deve ser preservada na conversão.
+  - **Exemplo:** o atributo nível de satisfação (baixo, médio, alto) pode ser convertido em um atributo numérico onde "baixo" é codificado como 1, "médio" é codificado como 2 e "alto" é codificado como 3.
+- [Atributos nominais:]{.alert} não existe uma ordem natural entre os valores, portanto, a conversão é feita codificando cada valor nominal utilizando um ou mais algarismos binários (*one-hot-encoding*).
+  - **Exemplo:** o atributo cor dos olhos (azul, verde, castanho) pode ser convertido em três atributos binários: cor_olhos_azul, cor_olhos_verde e cor_olhos_castanho.
+:::
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Qualitativo para Quantitativo**
+:::{style='font-size: 0.95em;'}
+Observações sobre o *one-hot encoding*:
+
+- Como o número de atributos resultantes da conversão é igual ao número de valores distintos do atributo nominal, ela pode gerar conjuntos de dados com muitos atributos.
+  - Uma alternativa para esse caso é a construção de pseudo-atributos.
+  - **Exemplo:** Imagine o atributo nominal **nome do país** (195 países no mundo). O *one-hot encoding* resultaria em 195 atributos binários, um para cada país. Já a construção de pseudo-atributos poderia resultar em apenas 9 atributos numéricos: **nome do continente** (7 valores nominais, portanto, 7 atributos binários), **população** (1 atributo com valor inteiro) e **PIB** (1 atributo com valor real).
+:::
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**

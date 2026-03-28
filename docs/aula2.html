@@ -1092,7 +1092,7 @@
 <p>Dentre as diferentes técnicas de normalização, podemos destacar:</p>
 <ul>
 <li class="fragment">Normalização por escala: transforma os valores de um atributo para um intervalo específico pré-definido, por exemplo [0, 1] ou [-1, 1].</li>
-<li class="fragment">Normalização por padronização ou variação: transforma os valores de um atributo em um conjunto de valores que terão média 0 e desvio padrão 1.</li>
+<li class="fragment">Normalização por padronização ou variação: transforma os valores de um atributo em um conjunto de valores que terá média 0 e desvio padrão 1.</li>
 </ul>
 </section>
 <section id="transformação-de-dados-numéricos-6" class="slide level2">
@@ -1126,8 +1126,70 @@
 </ul></li>
 </ul>
 </section>
+<section id="transformação-de-dados-numéricos-8" class="slide level2">
+<h2><strong>Transformação de Dados Numéricos</strong></h2>
+<h3 id="normalização-de-dados-por-padronização"><strong>Normalização de Dados por Padronização</strong></h3>
+<p>A normalização por padronização, também denominada <em>z-score</em>, é realizada por meio da seguinte fórmula:</p>
+<div style="font-size: 0.9em;">
+<p><span class="math display">\[x_i' = \frac{x_i - \mu}{\sigma},\]</span></p>
+</div>
+<div>
+<p>onde:</p>
+<ul>
+<li><span class="math inline">\(x_i\)</span> é o valor original do atributo,</li>
+<li><span class="math inline">\(\mu\)</span> é a média do atributo <span class="math inline">\(X\)</span>,</li>
+<li><span class="math inline">\(\sigma\)</span> é o desvio padrão do atributo <span class="math inline">\(X\)</span>.</li>
+</ul>
+</div>
+</section>
 <section id="conversão-de-dados-entre-tipos-diferentes" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<p>Tipos de conversão:</p>
+<ul>
+<li class="fragment"><span class="alert">Atributo qualitativo para um atributo quantitativo:</span> codificação de dados.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> conversão do atributo sexo (categórico) para o atributo sexo (numérico) por meio da codificação, onde “M” é codificado como 0 e “F” é codificado como 1.</li>
+</ul></li>
+<li class="fragment"><span class="alert">Atributo quantitativo para um atributo qualitativo:</span> discretização de dados.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> conversão do atributo idade (numérico) para o atributo faixa etária (categórico) por meio da discretização.</li>
+</ul></li>
+</ul>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-1" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="qualitativo-para-quantitativo"><strong>Qualitativo para Quantitativo</strong></h3>
+<div style="font-size: 0.9em;">
+<p>A forma de fazer a conversão depende da existência ou não de uma <span class="alert">ordem natural</span> entre os valores do atributo qualitativo.</p>
+<ul>
+<li class="fragment"><span class="alert">Atributos ordinais:</span> existe uma ordem natural entre os valores, portanto, essa ordem deve ser preservada na conversão.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> o atributo nível de satisfação (baixo, médio, alto) pode ser convertido em um atributo numérico onde “baixo” é codificado como 1, “médio” é codificado como 2 e “alto” é codificado como 3.</li>
+</ul></li>
+<li class="fragment"><span class="alert">Atributos nominais:</span> não existe uma ordem natural entre os valores, portanto, a conversão é feita codificando cada valor nominal utilizando um ou mais algarismos binários (<em>one-hot-encoding</em>).
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> o atributo cor dos olhos (azul, verde, castanho) pode ser convertido em três atributos binários: cor_olhos_azul, cor_olhos_verde e cor_olhos_castanho.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-2" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="qualitativo-para-quantitativo-1"><strong>Qualitativo para Quantitativo</strong></h3>
+<div style="font-size: 0.95em;">
+<p>Observações sobre o <em>one-hot encoding</em>:</p>
+<ul>
+<li class="fragment">Como o número de atributos resultantes da conversão é igual ao número de valores distintos do atributo nominal, ela pode gerar conjuntos de dados com muitos atributos.
+<ul>
+<li class="fragment">Uma alternativa para esse caso é a construção de pseudo-atributos.</li>
+<li class="fragment"><strong>Exemplo:</strong> Imagine o atributo nominal <strong>nome do país</strong> (195 países no mundo). O <em>one-hot encoding</em> resultaria em 195 atributos binários, um para cada país. Já a construção de pseudo-atributos poderia resultar em apenas 9 atributos numéricos: <strong>nome do continente</strong> (7 valores nominais, portanto, 7 atributos binários), <strong>população</strong> (1 atributo com valor inteiro) e <strong>PIB</strong> (1 atributo com valor real).</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-3" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="quantitativo-para-qualitativo"><strong>Quantitativo para Qualitativo</strong></h3>
 <div class="quarto-auto-generated-content">
 <p><img src="figuras/logoUFLA.png" class="slide-logo"></p>
 <div class="footer footer-default">
