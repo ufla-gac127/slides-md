@@ -1190,6 +1190,239 @@
 <section id="conversão-de-dados-entre-tipos-diferentes-3" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo"><strong>Quantitativo para Qualitativo</strong></h3>
+<div style="font-size: 0.95em;">
+<p>Essa transformação é importante porque:</p>
+<ul>
+<li class="fragment">Alguns algoritmos de mineração de dados (por exemplo, ID3) só trabalham com atributos discretos.</li>
+<li class="fragment">Simplifica os dados originais tornando o processo de mineração mais eficiente.</li>
+<li class="fragment">Torna os padrões minerados mais fáceis de serem entendidos.</li>
+</ul>
+<div class="fragment">
+<p>A abordagem usual para a discretização é a definição de intervalos de valores numéricos, onde cada intervalo é associado a um valor nominal.</p>
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> o atributo idade pode ser discretizado em faixas etárias (0-18, 19-35, 36-60, 60+).</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-4" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="quantitativo-para-qualitativo-1"><strong>Quantitativo para Qualitativo</strong></h3>
+<p>Temos as seguintes categorias de métodos para a discretização de dados:</p>
+<div class="fragment">
+<p><strong>Métodos Supervisionados</strong></p>
+<ul>
+<li class="fragment">Utilizam informações referentes às classes das instâncias da base de dados durante o processo de discretização de um atributo.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Métodos Não Supervisionados</strong></p>
+<ul>
+<li class="fragment">Consideram somente os valores do atributo a ser discretizado.</li>
+</ul>
+</div>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-5" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="quantitativo-para-qualitativo-2"><strong>Quantitativo para Qualitativo</strong></h3>
+<div style="font-size: 0.95em;">
+<p><strong>Métodos Não Supervisionados</strong></p>
+<p><span class="alert">Partição em Intervalos Iguais</span></p>
+<ul>
+<li class="fragment">Divide a faixa de valores de um atributo em <span class="math inline">\(k\)</span> partições<sup>1</sup> iguais (de mesma amplitude), substituindo os valores de cada partição por um rótulo.
+<ul>
+<li class="fragment">Exemplo: atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e k=2.<br>&nbsp;&nbsp;Partições resultantes: {1, 3, 4, 5, 6} e {7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, “faixa_1” para a primeira partição e “faixa_2” para a segunda partição.</li>
+</ul></li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>O parâmetro <span class="math inline">\(k\)</span> deve ser informado pelo usuário.</p></li></ol></aside></section>
+<section id="conversão-de-dados-entre-tipos-diferentes-6" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="quantitativo-para-qualitativo-3"><strong>Quantitativo para Qualitativo</strong></h3>
+<div style="font-size: 0.95em;">
+<p><strong>Métodos Não Supervisionados</strong></p>
+<p><span class="alert">Partição em Intervalos com Frequências Iguais</span></p>
+<ul>
+<li class="fragment">Divide os valores de um atributo em <span class="math inline">\(k\)</span> partições<sup>1</sup>, substituindo os valores de cada partição por um rótulo. Para uma base de dados com <span class="math inline">\(m\)</span> instâncias, cada partição conterá <span class="math inline">\(m/k\)</span> valores adjacentes (possivelmente duplicados).
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e k=2.<br>&nbsp;&nbsp;Partições resultantes: {1, 3, 4, 5} e {6, 7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, “faixa_1” para a primeira partição e “faixa_2” para a segunda partição.</li>
+</ul></li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>O parâmetro <span class="math inline">\(k\)</span> deve ser informado pelo usuário.</p></li></ol></aside></section>
+<section id="conversão-de-dados-entre-tipos-diferentes-7" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="quantitativo-para-qualitativo-4"><strong>Quantitativo para Qualitativo</strong></h3>
+<p><strong>Métodos Não Supervisionados</strong></p>
+<p>Qual é a desvantagem dos métodos de discretização não supervisionados?</p>
+<div class="columns fragment" style="display: flex !important; align-items: center;">
+<div class="column" style="width:60%;">
+<p><strong>Desvantagem:</strong> as fronteiras escolhidas para particionar os dados em intervalos podem colocar juntas muitas instâncias pertencentes a diferentes classes, afetando a precisão do classificador.</p>
+</div><div class="column fontsize80" style="display: flex; justify-content: center; align-items: center;">
+<table>
+<colgroup>
+<col style="width: 54%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Atributo</th>
+<th style="text-align: center;">Classe</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span style="color: blue;">1</span></td>
+<td style="text-align: center;"><span style="color: darkgreen;">C1</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span style="color: blue;">3</span></td>
+<td style="text-align: center;"><span style="color: darkgreen;">C1</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span style="color: blue;">4</span></td>
+<td style="text-align: center;"><span style="color: #FF8C00;">C2</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span style="color: blue;">5</span></td>
+<td style="text-align: center;"><span style="color: #FF8C00;">C2</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span style="color: red;">6</span></td>
+<td style="text-align: center;"><span style="color: #FF8C00;">C2</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span style="color: red;">7</span></td>
+<td style="text-align: center;"><span style="color: #FF8C00;">C2</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span style="color: red;">9</span></td>
+<td style="text-align: center;"><span style="color: #FF8C00;">C2</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span style="color: red;">12</span></td>
+<td style="text-align: center;"><span style="color: #FF8C00;">C2</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-8" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="quantitativo-para-qualitativo-5"><strong>Quantitativo para Qualitativo</strong></h3>
+<p>Discretização Supervisionada com MDLP</p>
+<h3 id="exemplo">Exemplo</h3>
+<p>Atributo contínuo (X) e classe (Y):</p>
+<table>
+<thead>
+<tr class="header">
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="ordenação">1. Ordenação</h3>
+<p>Dados já ordenados por (X)</p>
+</section>
+<section class="slide level2">
+
+<h3 id="pontos-candidatos-a-corte">2. Pontos candidatos a corte</h3>
+<p>Mudanças de classe:</p>
+<ul>
+<li class="fragment">entre 5 e 7 → (T_1 = 6)</li>
+<li class="fragment">entre 10 e 12 → (T_2 = 11)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="calcular-entropia-do-conjunto">3. Calcular entropia do conjunto</h3>
+<p>[ Entropia(S) = - p_i _2 p_i ]</p>
+<p>Classes: - A = 3, B = 2</p>
+<p>[ Entropia(S) ]</p>
+</section>
+<section class="slide level2">
+
+<h3 id="avaliar-corte-t_1-6">4. Avaliar corte (T_1 = 6)</h3>
+<p>Divisão:</p>
+<ul>
+<li class="fragment">(S_1 = {2,5} A,A) → Entropia = 0<br>
+</li>
+<li class="fragment">(S_2 = {7,10,12} B,B,A) → Entropia ≈ 0.918</li>
+</ul>
+<p>[ Gain(T_1) = 0.971 - ( + ) ]</p>
+</section>
+<section class="slide level2">
+
+<h3 id="avaliar-corte-t_2-11">5. Avaliar corte (T_2 = 11)</h3>
+<p>Divisão:</p>
+<ul>
+<li class="fragment">(S_1 = {2,5,7,10} A,A,B,B) → Entropia = 1<br>
+</li>
+<li class="fragment">(S_2 = {12} A) → Entropia = 0</li>
+</ul>
+<p>[ Gain(T_2) = 0.971 - ( + ) ]</p>
+</section>
+<section class="slide level2">
+
+<h3 id="escolha-do-melhor-corte">6. Escolha do melhor corte</h3>
+<p>[ Gain(T_1) &gt; Gain(T_2) ]</p>
+<p>✔ Melhor corte: <strong>(T = 6)</strong></p>
+</section>
+<section class="slide level2">
+
+<h3 id="aplicar-critério-mdl">7. Aplicar critério MDL</h3>
+<ul>
+<li class="fragment">Verifica se o ganho compensa a complexidade<br>
+</li>
+<li class="fragment">Se satisfaz → aceita o corte</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="resultado-parcial">8. Resultado parcial</h3>
+<p>Intervalos:</p>
+<ul>
+<li class="fragment">((-, 6]) → Classe A<br>
+</li>
+<li class="fragment">((6, )) → continuar recursivamente</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="ideia-chave">💡 Ideia-chave</h3>
+<ul>
+<li class="fragment">Maximizar ganho de informação<br>
+</li>
+<li class="fragment">Penalizar excesso de cortes (MDL)<br>
+</li>
+<li class="fragment">Aplicar recursivamente</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <p><img src="figuras/logoUFLA.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -1197,6 +1430,7 @@
 </div>
 </div>
 </section></section>
+
     </div>
   </div>
 

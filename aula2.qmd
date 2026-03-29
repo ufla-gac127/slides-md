@@ -562,3 +562,201 @@ Observações sobre o *one-hot encoding*:
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.95em;'}
+Essa transformação é importante porque:
+
+- Alguns algoritmos de mineração de dados (por exemplo, ID3) só trabalham com atributos discretos.
+- Simplifica os dados originais tornando o processo de mineração mais eficiente.
+- Torna os padrões minerados mais fáceis de serem entendidos.
+
+:::{.fragment}  
+A abordagem usual para a discretização é a definição de intervalos de valores numéricos, onde cada intervalo é associado a um valor nominal.
+
+- **Exemplo:** o atributo idade pode ser discretizado em faixas etárias (0-18, 19-35, 36-60, 60+).
+:::
+:::
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+Temos as seguintes categorias de métodos para a discretização de dados:
+
+:::{.fragment}
+**Métodos Supervisionados**
+
+- Utilizam informações referentes às classes das instâncias da base de dados durante o processo de discretização de um atributo.
+:::
+
+:::{.fragment}
+**Métodos Não Supervisionados**
+
+- Consideram somente os valores do atributo a ser discretizado.
+:::
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.95em;'}
+
+**Métodos Não Supervisionados**
+
+[Partição em Intervalos Iguais]{.alert}
+
+- Divide a faixa de valores de um atributo em $k$ partições[^1] iguais (de mesma amplitude), substituindo os valores de cada partição por um rótulo.
+  - Exemplo: atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e  k=2.<br>&nbsp;&nbsp;Partições resultantes: {1, 3, 4, 5, 6} e {7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, "faixa_1" para a primeira partição e "faixa_2" para a segunda partição.
+:::
+
+[^1]: O parâmetro $k$ deve ser informado pelo usuário.
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.95em;'}
+
+**Métodos Não Supervisionados**
+
+[Partição em Intervalos com Frequências Iguais]{.alert}
+
+- Divide os valores de um atributo em $k$ partições[^1], substituindo os valores de cada partição por um rótulo. Para uma base de dados com $m$ instâncias, cada partição conterá $m/k$ valores adjacentes (possivelmente duplicados).
+  - **Exemplo:** atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e  k=2.<br>&nbsp;&nbsp;Partições resultantes: {1, 3, 4, 5} e {6, 7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, "faixa_1" para a primeira partição e "faixa_2" para a segunda partição.
+:::
+
+[^1]: O parâmetro $k$ deve ser informado pelo usuário.
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+**Métodos Não Supervisionados**
+
+Qual é a desvantagem dos métodos de discretização não supervisionados?
+
+::::{.columns style='display: flex !important; align-items: center;' .fragment}
+
+::: {.column width="60%"}
+**Desvantagem:** as fronteiras escolhidas para particionar os dados em intervalos podem colocar juntas muitas instâncias pertencentes a diferentes classes, afetando a precisão do classificador.
+:::
+
+::: {.column width="40%" style="display: flex; justify-content: center; align-items: center;" .fontsize80}
+
+| Atributo   | Classe   |
+|:----------:|:--------:|
+| <span style="color: blue;">1</span>  | <span style="color: darkgreen;">C1</span>    |
+| <span style="color: blue;">3</span>  | <span style="color: darkgreen;">C1</span>    |
+| <span style="color: blue;">4</span>  | <span style="color: #FF8C00;">C2</span>    |
+| <span style="color: blue;">5</span>  | <span style="color: #FF8C00;">C2</span>    |
+| <span style="color: red;">6</span>   | <span style="color: #FF8C00;">C2</span>    |
+| <span style="color: red;">7</span>   | <span style="color: #FF8C00;">C2</span>    |
+| <span style="color: red;">9</span>   | <span style="color: #FF8C00;">C2</span>    |
+| <span style="color: red;">12</span>  | <span style="color: #FF8C00;">C2</span>    |
+:::
+::::
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+
+Discretização Supervisionada com MDLP
+
+### Exemplo
+
+Atributo contínuo \(X\) e classe \(Y\):
+
+| X  | Y |
+|----|---|
+| 2  | A |
+| 5  | A |
+| 7  | B |
+| 10 | B |
+| 12 | A |
+
+---
+
+### 1. Ordenação
+
+Dados já ordenados por \(X\)
+
+---
+
+### 2. Pontos candidatos a corte
+
+Mudanças de classe:
+
+- entre 5 e 7 → \(T_1 = 6\)
+- entre 10 e 12 → \(T_2 = 11\)
+
+---
+
+### 3. Calcular entropia do conjunto
+
+\[
+Entropia(S) = - \sum p_i \log_2 p_i
+\]
+
+Classes:
+- A = 3, B = 2
+
+\[
+Entropia(S) \approx 0.971
+\]
+
+---
+
+### 4. Avaliar corte \(T_1 = 6\)
+
+Divisão:
+
+- \(S_1 = \{2,5\} \rightarrow A,A\) → Entropia = 0  
+- \(S_2 = \{7,10,12\} \rightarrow B,B,A\) → Entropia ≈ 0.918  
+
+\[
+Gain(T_1) = 0.971 - \left(\frac{2}{5} \cdot 0 + \frac{3}{5} \cdot 0.918\right)
+\approx 0.420
+\]
+
+---
+
+### 5. Avaliar corte \(T_2 = 11\)
+
+Divisão:
+
+- \(S_1 = \{2,5,7,10\} \rightarrow A,A,B,B\) → Entropia = 1  
+- \(S_2 = \{12\} \rightarrow A\) → Entropia = 0  
+
+\[
+Gain(T_2) = 0.971 - \left(\frac{4}{5} \cdot 1 + \frac{1}{5} \cdot 0\right)
+\approx 0.171
+\]
+
+---
+
+### 6. Escolha do melhor corte
+
+\[
+Gain(T_1) > Gain(T_2)
+\]
+
+✔ Melhor corte: **\(T = 6\)**
+
+---
+
+### 7. Aplicar critério MDL
+
+- Verifica se o ganho compensa a complexidade  
+- Se satisfaz → aceita o corte  
+
+---
+
+### 8. Resultado parcial
+
+Intervalos:
+
+- \((-\infty, 6]\) → Classe A  
+- \((6, \infty)\) → continuar recursivamente  
+
+---
+
+### 💡 Ideia-chave
+
+- Maximizar ganho de informação  
+- Penalizar excesso de cortes (MDL)  
+- Aplicar recursivamente
+
+
