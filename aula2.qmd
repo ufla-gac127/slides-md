@@ -653,11 +653,54 @@ Qual é a desvantagem dos métodos de discretização não supervisionados?
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
 
-Discretização Supervisionada com MDLP
+[Discretização Supervisionada com MDLP]{.alert}
 
-### Exemplo
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
-Atributo contínuo \(X\) e classe \(Y\):
+::::{.columns style='display: flex !important; align-items: center;' .fragment}
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+Base de dados original:
+
+| X    |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  12  |  A  |
+|  10  |  B  |
+|  7   |  B  |
+|  5   |  A  |
+
+:::
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+[[Ordenação:]{.alert} Dados ordenados por \(X\)]{.fontsize90}
+
+| X  | Y |
+|----|---|
+| 2  | A |
+| 5  | A |
+| 7  | B |
+| 10 | B |
+| 12 | A |
+:::
+::::
+
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+
+[Discretização Supervisionada com MDLP]{.alert}
+
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
+
+::::{.columns style='display: flex !important; align-items: center;'}
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+Base de dados original:
 
 | X  | Y |
 |----|---|
@@ -667,96 +710,190 @@ Atributo contínuo \(X\) e classe \(Y\):
 | 10 | B |
 | 12 | A |
 
----
+:::
 
-### 1. Ordenação
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment}
 
-Dados já ordenados por \(X\)
+[[Pontos candidatos a corte:]{.alert} Valores médios entre valores adjacentes de \(X\) onde ocorre mudança de classe.]{.fontsize90}
 
----
+- Entre 5 e 7 → \($T_1 = 6$\)
+- Entre 10 e 12 → \($T_2 = 11$\)
+:::
+::::
 
-### 2. Pontos candidatos a corte
 
-Mudanças de classe:
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
 
-- entre 5 e 7 → \(T_1 = 6\)
-- entre 10 e 12 → \(T_2 = 11\)
+[Discretização Supervisionada com MDLP]{.alert}
 
----
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
-### 3. Calcular entropia do conjunto
+::::{.columns style='display: flex !important; align-items: center;'}
 
-\[
-Entropia(S) = - \sum p_i \log_2 p_i
-\]
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-Classes:
-- A = 3, B = 2
+Base de dados original:
 
-\[
-Entropia(S) \approx 0.971
-\]
+| X  | Y |
+|----|---|
+| 2  | A |
+| 5  | A |
+| 7  | B |
+| 10 | B |
+| 12 | A |
 
----
+:::
 
-### 4. Avaliar corte \(T_1 = 6\)
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment}
 
-Divisão:
+[Calcular entropia do conjunto:]{.alert .fontsize90}
+[$$Entropia(S) = E(S)= - \sum_{i=1}^{m} p_i \log_2 p_i$$]{.fontsize80}
+[$$E(S) = - \sum \frac{3}{5} \log_2 \frac{3}{5} - \frac{2}{5} \log_2 \frac{2}{5}$$]{.fontsize80}
+[$$E(S) = 0,971$$]{.fontsize80}
+:::
+::::
 
-- \(S_1 = \{2,5\} \rightarrow A,A\) → Entropia = 0  
-- \(S_2 = \{7,10,12\} \rightarrow B,B,A\) → Entropia ≈ 0.918  
 
-\[
-Gain(T_1) = 0.971 - \left(\frac{2}{5} \cdot 0 + \frac{3}{5} \cdot 0.918\right)
-\approx 0.420
-\]
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
 
----
+[Discretização Supervisionada com MDLP]{.alert}
 
-### 5. Avaliar corte \(T_2 = 11\)
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
-Divisão:
+::::{.columns style='display: flex !important; align-items: center;'}
 
-- \(S_1 = \{2,5,7,10\} \rightarrow A,A,B,B\) → Entropia = 1  
-- \(S_2 = \{12\} \rightarrow A\) → Entropia = 0  
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-\[
-Gain(T_2) = 0.971 - \left(\frac{4}{5} \cdot 1 + \frac{1}{5} \cdot 0\right)
-\approx 0.171
-\]
+Base de dados original:
 
----
+| X  | Y |
+|----|---|
+| 2  | A |
+| 5  | A |
+| 7  | B |
+| 10 | B |
+| 12 | A |
 
-### 6. Escolha do melhor corte
+:::
 
-\[
-Gain(T_1) > Gain(T_2)
-\]
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment}
 
-✔ Melhor corte: **\(T = 6\)**
+[Avaliar corte \($T_1$ = 6\):]{.alert .fontsize90}
+[$S_1: X=\{2,5\} \rightarrow Y=\{A,A\}$  $E(S_1) = - \sum \frac{2}{2} \log_2 \frac{2}{2} - \frac{0}{2} \log_2 \frac{0}{2}=0$]{.fontsize80} 
 
----
+[$S_2: X=\{7,10,12\} \rightarrow Y=\{B,B,A\}$ $E(S_2) = - \sum \frac{2}{3} \log_2 \frac{2}{3} - \frac{1}{3} \log_2 \frac{1}{3} = 0,918$]{.fontsize80}
 
-### 7. Aplicar critério MDL
+[$GI(T_1) = 0.971 - \left(\frac{2}{5} \cdot 0 + \frac{3}{5} \cdot 0.918\right) = 0.420$]{.fontsize75}
+:::
+::::
 
-- Verifica se o ganho compensa a complexidade  
-- Se satisfaz → aceita o corte  
 
----
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
 
-### 8. Resultado parcial
+[Discretização Supervisionada com MDLP]{.alert}
 
-Intervalos:
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
-- \((-\infty, 6]\) → Classe A  
-- \((6, \infty)\) → continuar recursivamente  
+::::{.columns style='display: flex !important; align-items: center;'}
 
----
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-### 💡 Ideia-chave
+Base de dados original:
 
-- Maximizar ganho de informação  
-- Penalizar excesso de cortes (MDL)  
-- Aplicar recursivamente
+| X  | Y |
+|----|---|
+| 2  | A |
+| 5  | A |
+| 7  | B |
+| 10 | B |
+| 12 | A |
+
+:::
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment}
+
+[Avaliar corte \($T_2$ = 11\):]{.alert .fontsize90}
+[$S_1: X=\{2,5,7,10\} \rightarrow Y=\{A,A,B,B\}$  $E(S_1) = - \sum \frac{2}{4} \log_2 \frac{2}{4} - \frac{2}{4} \log_2 \frac{2}{4}=1$]{.fontsize80} 
+
+[$S_2: X=\{12\} \rightarrow Y=\{A\}$ $E(S_2) = - \sum \frac{1}{1} \log_2 \frac{1}{1} - \frac{0}{1} \log_2 \frac{0}{1} = 0$]{.fontsize80}
+
+[$GI(T_2) = 0.971 - \left(\frac{4}{5} \cdot 1 + \frac{1}{5} \cdot 0\right) = 0.171$]{.fontsize75}
+:::
+::::
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+
+[Discretização Supervisionada com MDLP]{.alert}
+
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
+
+::::{.columns style='display: flex !important; align-items: center;'}
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+Base de dados original:
+
+| X  | Y |
+|----|---|
+| 2  | A |
+| 5  | A |
+| 7  | B |
+| 10 | B |
+| 12 | A |
+
+:::
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment}
+
+[Escolha do melhor corte:]{.alert .fontsize90}
+
+[$GI(T_1) = 0.420$ e $GI(T_2) = 0.171$]{.fontsize80}
+
+[Ou seja, $GI(T_1) > GI(T_2$)]{.fontsize80}
+
+[Portanto, o melhor corte é $T_1$ = 6.]{.fontsize90}
+
+:::
+::::
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+
+[Discretização Supervisionada com MDLP]{.alert}
+
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
+
+::::{.columns style='display: flex !important; align-items: center;'}
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+Base de dados original:
+
+| X  | Y |
+|----|---|
+| 2  | A |
+| 5  | A |
+| 7  | B |
+| 10 | B |
+| 12 | A |
+
+:::
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment}
+
+[Aplicar critério MDL:]{.alert .fontsize90}
+
+- Verifica se o ganho de informação compensa a complexidade  
+- Se compensar → aceita o corte  
+
+:::
+::::
+
 
 
