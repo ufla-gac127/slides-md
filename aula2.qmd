@@ -519,7 +519,7 @@ Quais são as [desvantagens]{.alert} da [normalização por escala]{.alert}?
 
 ## **Transformação de Dados Numéricos**
 ### **Normalização de Dados por Padronização**
-A [normalização por padronização]{.alert}, também denominada *z-score*, é realizada por meio da seguinte fórmula:
+A [normalização por padronização]{.alert}, também denominada ***z-score***, é realizada por meio da seguinte fórmula:
 
 :::{style='font-size: 0.9em;'}
 $$x_i' = \frac{x_i - \mu}{\sigma},$$
@@ -540,6 +540,15 @@ onde:
 - [Atributo quantitativo para um atributo qualitativo:]{.alert} discretização de dados.
   - **Exemplo:** conversão do atributo idade (numérico) para o atributo faixa etária (categórico) por meio da discretização.
 
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Qualitativo para Quantitativo**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+Essa [transformação]{.alert} é [importante]{.alert} porque:
+
+- [Alguns algoritmos]{.alert} de mineração de dados só [trabalham]{.alert} com [atributos numéricos]{.alert}.
+  - **Exemplo:** redes neurais, regressão logística, regressão linear etc.
+:::
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Qualitativo para Quantitativo**
@@ -581,18 +590,18 @@ A [abordagem usual]{.alert} para a [discretização]{.alert} é a [definição d
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
-Temos as seguintes categorias de métodos para a discretização de dados:
-
-:::{.fragment}
-**Métodos Supervisionados**
-
-- Utilizam informações referentes às classes das instâncias da base de dados durante o processo de discretização de um atributo.
-:::
+Temos as seguintes [categorias]{.alert} de [métodos]{.alert} para a [discretização]{.alert} de dados:
 
 :::{.fragment}
 **Métodos Não Supervisionados**
 
-- Consideram somente os valores do atributo a ser discretizado.
+- [Consideram]{.alert} [somente]{.alert} os [valores]{.alert} do [atributo]{.alert} a ser discretizado.
+:::
+
+:::{.fragment}
+**Métodos Supervisionados**
+
+- [Utilizam]{.alert} informações referentes às [classes]{.alert} das instâncias da base de dados durante o [processo de discretização]{.alert} de um atributo.
 :::
 
 
@@ -604,8 +613,8 @@ Temos as seguintes categorias de métodos para a discretização de dados:
 
 [Partição em Intervalos Iguais]{.alert}
 
-- Divide a faixa de valores de um atributo em $k$ partições[^1] iguais (de mesma amplitude), substituindo os valores de cada partição por um rótulo.
-  - Exemplo: atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e  k=2.<br>&nbsp;&nbsp;Partições resultantes: {1, 3, 4, 5, 6} e {7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, "faixa_1" para a primeira partição e "faixa_2" para a segunda partição.
+- [Divide]{.alert} a faixa de valores de um atributo em [$k$ partições]{.alert}[^1] iguais (de [mesma amplitude]{.alert}), substituindo os valores de cada partição por um rótulo.
+  - **Exemplo:** atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e  k=2.<br>&nbsp;&nbsp;[Partições resultantes:]{.alert} {1, 3, 4, 5, 6} e {7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, "faixa_1" para a primeira partição e "faixa_2" para a segunda partição.
 :::
 
 [^1]: O parâmetro $k$ deve ser informado pelo usuário.
@@ -619,8 +628,8 @@ Temos as seguintes categorias de métodos para a discretização de dados:
 
 [Partição em Intervalos com Frequências Iguais]{.alert}
 
-- Divide os valores de um atributo em $k$ partições[^1], substituindo os valores de cada partição por um rótulo. Para uma base de dados com $m$ instâncias, cada partição conterá $m/k$ valores adjacentes (possivelmente duplicados).
-  - **Exemplo:** atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e  k=2.<br>&nbsp;&nbsp;Partições resultantes: {1, 3, 4, 5} e {6, 7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, "faixa_1" para a primeira partição e "faixa_2" para a segunda partição.
+- [Divide]{.alert} os valores de um atributo em [$k$ partições]{.alert}[^1], substituindo os valores de cada partição por um rótulo. Para uma base de dados com $m$ instâncias, [cada partição]{.alert} conterá $m/k$ [valores adjacentes]{.alert} (possivelmente duplicados).
+  - **Exemplo:** atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e  k=2.<br>&nbsp;&nbsp;[Partições resultantes:]{.alert} {1, 3, 4, 5} e {6, 7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, "faixa_1" para a primeira partição e "faixa_2" para a segunda partição.
 :::
 
 [^1]: O parâmetro $k$ deve ser informado pelo usuário.
@@ -630,12 +639,12 @@ Temos as seguintes categorias de métodos para a discretização de dados:
 ### **Quantitativo para Qualitativo**
 **Métodos Não Supervisionados**
 
-Qual é a desvantagem dos métodos de discretização não supervisionados?
+Qual é a [desvantagem]{.alert} dos [métodos]{.alert} de discretização [não supervisionados]{.alert}?
 
 ::::{.columns style='display: flex !important; align-items: center;' .fragment}
 
 ::: {.column width="60%"}
-**Desvantagem:** as fronteiras escolhidas para particionar os dados em intervalos podem colocar juntas muitas instâncias pertencentes a diferentes classes, afetando a precisão do classificador.
+**Desvantagem:** as [fronteiras escolhidas]{.alert} para particionar os dados em intervalos [podem colocar juntas]{.alert} muitas [instâncias]{.alert} pertencentes a [diferentes classes]{.alert}, afetando a precisão do classificador.
 :::
 
 ::: {.column width="40%" style="display: flex; justify-content: center; align-items: center;" .fontsize80}
@@ -655,8 +664,8 @@ Qual é a desvantagem dos métodos de discretização não supervisionados?
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
-
-[Discretização Supervisionada com MDLP]{.alert}
+:::{style='font-size: 0.9em;'}
+**Métodos Supervisionados**: [Discretização Baseada em Entropia com MDL]{.alert}
 
 **Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
@@ -680,22 +689,22 @@ Base de dados original:
 
 [[Ordenação:]{.alert} Dados ordenados por \(X\)]{.fontsize90}
 
-| X  | Y |
-|----|---|
-| 2  | A |
-| 5  | A |
-| 7  | B |
-| 10 | B |
-| 12 | A |
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
 :::
 ::::
-
+:::
 
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
-
-[Discretização Supervisionada com MDLP]{.alert}
+:::{style='font-size: 0.9em;'}
+[Discretização Baseada em Entropia com MDL]{.alert}
 
 **Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
@@ -703,15 +712,15 @@ Base de dados original:
 
 ::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-Base de dados original:
+Base de dados ordenada:
 
-| X  | Y |
-|----|---|
-| 2  | A |
-| 5  | A |
-| 7  | B |
-| 10 | B |
-| 12 | A |
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
 
 :::
 
@@ -723,12 +732,14 @@ Base de dados original:
 - Entre 10 e 12 → \($T_2 = 11$\)
 :::
 ::::
+:::
 
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.9em;'}
 
-[Discretização Supervisionada com MDLP]{.alert}
+[Discretização Baseada em Entropia com MDL]{.alert}
 
 **Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
@@ -736,15 +747,15 @@ Base de dados original:
 
 ::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-Base de dados original:
+Base de dados ordenada:
 
-| X  | Y |
-|----|---|
-| 2  | A |
-| 5  | A |
-| 7  | B |
-| 10 | B |
-| 12 | A |
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
 
 :::
 
@@ -756,12 +767,14 @@ Base de dados original:
 [$$E(S) = 0,971$$]{.fontsize80}
 :::
 ::::
+:::
 
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.9em;'}
 
-[Discretização Supervisionada com MDLP]{.alert}
+[Discretização Baseada em Entropia com MDL]{.alert}
 
 **Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
@@ -769,15 +782,15 @@ Base de dados original:
 
 ::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-Base de dados original:
+Base de dados ordenada:
 
-| X  | Y |
-|----|---|
-| 2  | A |
-| 5  | A |
-| 7  | B |
-| 10 | B |
-| 12 | A |
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
 
 :::
 
@@ -791,12 +804,14 @@ Base de dados original:
 [$GI(T_1) = 0.971 - \left(\frac{2}{5} \cdot 0 + \frac{3}{5} \cdot 0.918\right) = 0.420$]{.fontsize75}
 :::
 ::::
+:::
 
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.9em;'}
 
-[Discretização Supervisionada com MDLP]{.alert}
+[Discretização Baseada em Entropia com MDL]{.alert}
 
 **Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
@@ -804,15 +819,15 @@ Base de dados original:
 
 ::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-Base de dados original:
+Base de dados ordenada:
 
-| X  | Y |
-|----|---|
-| 2  | A |
-| 5  | A |
-| 7  | B |
-| 10 | B |
-| 12 | A |
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
 
 :::
 
@@ -826,12 +841,14 @@ Base de dados original:
 [$GI(T_2) = 0.971 - \left(\frac{4}{5} \cdot 1 + \frac{1}{5} \cdot 0\right) = 0.171$]{.fontsize75}
 :::
 ::::
+:::
 
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.9em;'}
 
-[Discretização Supervisionada com MDLP]{.alert}
+[Discretização Baseada em Entropia com MDL]{.alert}
 
 **Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
@@ -839,15 +856,15 @@ Base de dados original:
 
 ::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-Base de dados original:
+Base de dados ordenada:
 
-| X  | Y |
-|----|---|
-| 2  | A |
-| 5  | A |
-| 7  | B |
-| 10 | B |
-| 12 | A |
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
 
 :::
 
@@ -863,12 +880,14 @@ Base de dados original:
 
 :::
 ::::
+:::
 
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.9em;'}
 
-[Discretização Supervisionada com MDLP]{.alert}
+[Discretização Baseada em Entropia com MDL]{.alert}
 
 **Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
 
@@ -876,27 +895,110 @@ Base de dados original:
 
 ::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
 
-Base de dados original:
+Base de dados ordenada:
 
-| X  | Y |
-|----|---|
-| 2  | A |
-| 5  | A |
-| 7  | B |
-| 10 | B |
-| 12 | A |
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
 
 :::
 
-::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment}
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment .fontsize50 .nonincremental}
 
-[Aplicar critério MDL:]{.alert .fontsize90}
+:::{style='font-size: 1.3em;'}
+[Verificar critério de parada com MDL:]{.alert}
+:::
 
-- Verifica se o ganho de informação compensa a complexidade  
-- Se compensar → aceita o corte  
+$$GI(T) > \frac{\log_2(N-1)}{N} + \frac{log_2(3^k-2)-k \times E + k_1 \times E_1 + k_2 \times E_2}{N} $$ onde:
+
+- $N$ é o número total de instâncias,
+- $k$ é o número de classes,
+- $E$ é a entropia do conjunto original,
+- $E_1$ é a entropia do conjunto $S_1$,
+- $E_2$ é a entropia do conjunto $S_2$,
+- $k_1$ é o número de classes distintas em $S_1$,
+- $k_2$ é o número de classes distintas em $S_2$.
+:::
+::::
+:::
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.9em;'}
+
+[Discretização Baseada em Entropia com MDL]{.alert}
+
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
+
+::::{.columns style='display: flex !important; align-items: center;'}
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+Base de dados ordenada:
+
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
+
+:::
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment .fontsize50 .nonincremental}
+
+:::{style='font-size: 1.3em;'}
+[Verificar critério de parada com MDL:]{.alert}
+
+Para o corte ($T_1=6$): $N$ = [5]{.alert} instâncias, $k$ = [2]{.alert} classes, $E$ = [0.971]{.alert} (entropia do conjunto original), $E_1$ = [0]{.alert} (entropia do conjunto $S_1$), $E_2$ = [0.918]{.alert} (entropia do conjunto $S_2$), $k_1$ = [1]{.alert} (número de classes distintas em $S_1$), $k_2$ = [2]{.alert} (número de classes distintas em $S_2$).
+
+Vale a pena inserir o corte $T_1$ = 6 se:
+:::
+
+$$GI(T) > \frac{\log_2(5-1)}{5} + \frac{log_2(3^2-2)-2 \times 0.971 + 1 \times 0 + 2 \times 0.918}{5} =0,940 $$
+:::
+::::
+:::
+
+
+## **Conversão de Dados entre Tipos Diferentes**
+### **Quantitativo para Qualitativo**
+:::{style='font-size: 0.9em;'}
+
+[Discretização Baseada em Entropia com MDL]{.alert}
+
+**Exemplo:** Atributo contínuo \(X\) e classe \(Y\).
+
+::::{.columns style='display: flex !important; align-items: center;'}
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+Base de dados ordenada:
+
+|  X   |  Y  |
+|:----:|:---:|
+|  2   |  A  |
+|  5   |  A  |
+|  7   |  B  |
+|  10  |  B  |
+|  12  |  A  |
+
+:::
+
+::: {.column width="50%" style="display: flex; flex-direction: column; justify-content: center; align-items: center;" .fragment .fontsize90}
+
+[Verificar critério de parada com MDL:]{.alert}
+
+Como $GI(T_1) = 0,420 < 0,940$, 
+
+**não vale a pena** inserir o ponto de corte!
 
 :::
 ::::
-
-
-
+:::

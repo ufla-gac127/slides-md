@@ -11,7 +11,7 @@
 <script src="aula2_files/libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
 <script src="aula2_files/libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
 <link href="aula2_files/libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content="Prof.&nbsp;Luiz Merschmann">
   <title>aula2</title>
@@ -1131,7 +1131,7 @@
 <section id="transformação-de-dados-numéricos-8" class="slide level2">
 <h2><strong>Transformação de Dados Numéricos</strong></h2>
 <h3 id="normalização-de-dados-por-padronização"><strong>Normalização de Dados por Padronização</strong></h3>
-<p>A <span class="alert">normalização por padronização</span>, também denominada <em>z-score</em>, é realizada por meio da seguinte fórmula:</p>
+<p>A <span class="alert">normalização por padronização</span>, também denominada <strong><em>z-score</em></strong>, é realizada por meio da seguinte fórmula:</p>
 <div style="font-size: 0.9em;">
 <p><span class="math display">\[x_i' = \frac{x_i - \mu}{\sigma},\]</span></p>
 </div>
@@ -1161,6 +1161,19 @@
 <section id="conversão-de-dados-entre-tipos-diferentes-1" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="qualitativo-para-quantitativo"><strong>Qualitativo para Quantitativo</strong></h3>
+<div style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+<p>Essa <span class="alert">transformação</span> é <span class="alert">importante</span> porque:</p>
+<ul>
+<li class="fragment"><span class="alert">Alguns algoritmos</span> de mineração de dados só <span class="alert">trabalham</span> com <span class="alert">atributos numéricos</span>.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> redes neurais, regressão logística, regressão linear etc.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-2" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="qualitativo-para-quantitativo-1"><strong>Qualitativo para Quantitativo</strong></h3>
 <div style="font-size: 0.9em;">
 <p>A forma de fazer a conversão depende da <span class="alert">existência ou não</span> de uma <span class="alert">ordem natural</span> entre os valores do atributo qualitativo.</p>
 <ul>
@@ -1175,9 +1188,9 @@
 </ul>
 </div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-2" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-3" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
-<h3 id="qualitativo-para-quantitativo-1"><strong>Qualitativo para Quantitativo</strong></h3>
+<h3 id="qualitativo-para-quantitativo-2"><strong>Qualitativo para Quantitativo</strong></h3>
 <div style="font-size: 0.95em;">
 <p><span class="alert">Observações</span> sobre o <span class="alert"><em>one-hot encoding</em></span>:</p>
 <ul>
@@ -1189,7 +1202,7 @@
 </ul>
 </div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-3" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-4" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo"><strong>Quantitativo para Qualitativo</strong></h3>
 <div style="font-size: 0.95em;">
@@ -1207,59 +1220,59 @@
 </div>
 </div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-4" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-5" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-1"><strong>Quantitativo para Qualitativo</strong></h3>
-<p>Temos as seguintes categorias de métodos para a discretização de dados:</p>
-<div class="fragment">
-<p><strong>Métodos Supervisionados</strong></p>
-<ul>
-<li class="fragment">Utilizam informações referentes às classes das instâncias da base de dados durante o processo de discretização de um atributo.</li>
-</ul>
-</div>
+<p>Temos as seguintes <span class="alert">categorias</span> de <span class="alert">métodos</span> para a <span class="alert">discretização</span> de dados:</p>
 <div class="fragment">
 <p><strong>Métodos Não Supervisionados</strong></p>
 <ul>
-<li class="fragment">Consideram somente os valores do atributo a ser discretizado.</li>
+<li class="fragment"><span class="alert">Consideram</span> <span class="alert">somente</span> os <span class="alert">valores</span> do <span class="alert">atributo</span> a ser discretizado.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Métodos Supervisionados</strong></p>
+<ul>
+<li class="fragment"><span class="alert">Utilizam</span> informações referentes às <span class="alert">classes</span> das instâncias da base de dados durante o <span class="alert">processo de discretização</span> de um atributo.</li>
 </ul>
 </div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-5" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-6" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-2"><strong>Quantitativo para Qualitativo</strong></h3>
 <div style="font-size: 0.95em;">
 <p><strong>Métodos Não Supervisionados</strong></p>
 <p><span class="alert">Partição em Intervalos Iguais</span></p>
 <ul>
-<li class="fragment">Divide a faixa de valores de um atributo em <span class="math inline">\(k\)</span> partições<sup>1</sup> iguais (de mesma amplitude), substituindo os valores de cada partição por um rótulo.
+<li class="fragment"><span class="alert">Divide</span> a faixa de valores de um atributo em <span class="alert"><span class="math inline">\(k\)</span> partições</span><sup>1</sup> iguais (de <span class="alert">mesma amplitude</span>), substituindo os valores de cada partição por um rótulo.
 <ul>
-<li class="fragment">Exemplo: atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e k=2.<br>&nbsp;&nbsp;Partições resultantes: {1, 3, 4, 5, 6} e {7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, “faixa_1” para a primeira partição e “faixa_2” para a segunda partição.</li>
+<li class="fragment"><strong>Exemplo:</strong> atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e k=2.<br>&nbsp;&nbsp;<span class="alert">Partições resultantes:</span> {1, 3, 4, 5, 6} e {7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, “faixa_1” para a primeira partição e “faixa_2” para a segunda partição.</li>
 </ul></li>
 </ul>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>O parâmetro <span class="math inline">\(k\)</span> deve ser informado pelo usuário.</p></li></ol></aside></section>
-<section id="conversão-de-dados-entre-tipos-diferentes-6" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-7" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-3"><strong>Quantitativo para Qualitativo</strong></h3>
 <div style="font-size: 0.95em;">
 <p><strong>Métodos Não Supervisionados</strong></p>
 <p><span class="alert">Partição em Intervalos com Frequências Iguais</span></p>
 <ul>
-<li class="fragment">Divide os valores de um atributo em <span class="math inline">\(k\)</span> partições<sup>1</sup>, substituindo os valores de cada partição por um rótulo. Para uma base de dados com <span class="math inline">\(m\)</span> instâncias, cada partição conterá <span class="math inline">\(m/k\)</span> valores adjacentes (possivelmente duplicados).
+<li class="fragment"><span class="alert">Divide</span> os valores de um atributo em <span class="alert"><span class="math inline">\(k\)</span> partições</span><sup>1</sup>, substituindo os valores de cada partição por um rótulo. Para uma base de dados com <span class="math inline">\(m\)</span> instâncias, <span class="alert">cada partição</span> conterá <span class="math inline">\(m/k\)</span> <span class="alert">valores adjacentes</span> (possivelmente duplicados).
 <ul>
-<li class="fragment"><strong>Exemplo:</strong> atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e k=2.<br>&nbsp;&nbsp;Partições resultantes: {1, 3, 4, 5} e {6, 7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, “faixa_1” para a primeira partição e “faixa_2” para a segunda partição.</li>
+<li class="fragment"><strong>Exemplo:</strong> atributo numérico {1, 3, 4, 5, 6, 7, 9, 12} e k=2.<br>&nbsp;&nbsp;<span class="alert">Partições resultantes:</span> {1, 3, 4, 5} e {6, 7, 9, 12}.<br>&nbsp;&nbsp;Cada valor de cada partição passa a ser representado por um rótulo, por exemplo, “faixa_1” para a primeira partição e “faixa_2” para a segunda partição.</li>
 </ul></li>
 </ul>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>O parâmetro <span class="math inline">\(k\)</span> deve ser informado pelo usuário.</p></li></ol></aside></section>
-<section id="conversão-de-dados-entre-tipos-diferentes-7" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-8" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-4"><strong>Quantitativo para Qualitativo</strong></h3>
 <p><strong>Métodos Não Supervisionados</strong></p>
-<p>Qual é a desvantagem dos métodos de discretização não supervisionados?</p>
+<p>Qual é a <span class="alert">desvantagem</span> dos <span class="alert">métodos</span> de discretização <span class="alert">não supervisionados</span>?</p>
 <div class="columns fragment" style="display: flex !important; align-items: center;">
 <div class="column" style="width:60%;">
-<p><strong>Desvantagem:</strong> as fronteiras escolhidas para particionar os dados em intervalos podem colocar juntas muitas instâncias pertencentes a diferentes classes, afetando a precisão do classificador.</p>
+<p><strong>Desvantagem:</strong> as <span class="alert">fronteiras escolhidas</span> para particionar os dados em intervalos <span class="alert">podem colocar juntas</span> muitas <span class="alert">instâncias</span> pertencentes a <span class="alert">diferentes classes</span>, afetando a precisão do classificador.</p>
 </div><div class="column fontsize80" style="display: flex; justify-content: center; align-items: center;">
 <table>
 <colgroup>
@@ -1310,10 +1323,11 @@
 </div>
 </div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-8" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-9" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-5"><strong>Quantitativo para Qualitativo</strong></h3>
-<p><span class="alert">Discretização Supervisionada com MDLP</span></p>
+<div style="font-size: 0.9em;">
+<p><strong>Métodos Supervisionados</strong>: <span class="alert">Discretização Baseada em Entropia com MDL</span></p>
 <p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
 <div class="columns fragment" style="display: flex !important; align-items: center;">
 <div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -1353,71 +1367,73 @@
 <table>
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>2</td>
-<td>A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+</div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-9" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-10" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-6"><strong>Quantitativo para Qualitativo</strong></h3>
-<p><span class="alert">Discretização Supervisionada com MDLP</span></p>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Discretização Baseada em Entropia com MDL</span></p>
 <p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
 <div class="columns" style="display: flex !important; align-items: center;">
 <div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-<p>Base de dados original:</p>
+<p>Base de dados ordenada:</p>
 <table>
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>2</td>
-<td>A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
 </tr>
 </tbody>
 </table>
@@ -1429,42 +1445,44 @@
 </ul>
 </div>
 </div>
+</div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-10" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-11" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-7"><strong>Quantitativo para Qualitativo</strong></h3>
-<p><span class="alert">Discretização Supervisionada com MDLP</span></p>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Discretização Baseada em Entropia com MDL</span></p>
 <p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
 <div class="columns" style="display: flex !important; align-items: center;">
 <div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-<p>Base de dados original:</p>
+<p>Base de dados ordenada:</p>
 <table>
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>2</td>
-<td>A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
 </tr>
 </tbody>
 </table>
@@ -1472,42 +1490,44 @@
 <p><span class="alert fontsize90">Calcular entropia do conjunto:</span> <span class="fontsize80"><span class="math display">\[Entropia(S) = E(S)= - \sum_{i=1}^{m} p_i \log_2 p_i\]</span></span> <span class="fontsize80"><span class="math display">\[E(S) = - \sum \frac{3}{5} \log_2 \frac{3}{5} - \frac{2}{5} \log_2 \frac{2}{5}\]</span></span> <span class="fontsize80"><span class="math display">\[E(S) = 0,971\]</span></span></p>
 </div>
 </div>
+</div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-11" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-12" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-8"><strong>Quantitativo para Qualitativo</strong></h3>
-<p><span class="alert">Discretização Supervisionada com MDLP</span></p>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Discretização Baseada em Entropia com MDL</span></p>
 <p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
 <div class="columns" style="display: flex !important; align-items: center;">
 <div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-<p>Base de dados original:</p>
+<p>Base de dados ordenada:</p>
 <table>
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>2</td>
-<td>A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
 </tr>
 </tbody>
 </table>
@@ -1517,42 +1537,44 @@
 <p><span class="fontsize75"><span class="math inline">\(GI(T_1) = 0.971 - \left(\frac{2}{5} \cdot 0 + \frac{3}{5} \cdot 0.918\right) = 0.420\)</span></span></p>
 </div>
 </div>
+</div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-12" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-13" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-9"><strong>Quantitativo para Qualitativo</strong></h3>
-<p><span class="alert">Discretização Supervisionada com MDLP</span></p>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Discretização Baseada em Entropia com MDL</span></p>
 <p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
 <div class="columns" style="display: flex !important; align-items: center;">
 <div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-<p>Base de dados original:</p>
+<p>Base de dados ordenada:</p>
 <table>
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>2</td>
-<td>A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
 </tr>
 </tbody>
 </table>
@@ -1562,42 +1584,44 @@
 <p><span class="fontsize75"><span class="math inline">\(GI(T_2) = 0.971 - \left(\frac{4}{5} \cdot 1 + \frac{1}{5} \cdot 0\right) = 0.171\)</span></span></p>
 </div>
 </div>
+</div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-13" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-14" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-10"><strong>Quantitativo para Qualitativo</strong></h3>
-<p><span class="alert">Discretização Supervisionada com MDLP</span></p>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Discretização Baseada em Entropia com MDL</span></p>
 <p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
 <div class="columns" style="display: flex !important; align-items: center;">
 <div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-<p>Base de dados original:</p>
+<p>Base de dados ordenada:</p>
 <table>
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>2</td>
-<td>A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
 </tr>
 </tbody>
 </table>
@@ -1608,52 +1632,159 @@
 <p><span class="fontsize90">Portanto, o melhor corte é <span class="math inline">\(T_1\)</span> = 6.</span></p>
 </div>
 </div>
+</div>
 </section>
-<section id="conversão-de-dados-entre-tipos-diferentes-14" class="slide level2">
+<section id="conversão-de-dados-entre-tipos-diferentes-15" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo-11"><strong>Quantitativo para Qualitativo</strong></h3>
-<p><span class="alert">Discretização Supervisionada com MDLP</span></p>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Discretização Baseada em Entropia com MDL</span></p>
 <p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
 <div class="columns" style="display: flex !important; align-items: center;">
 <div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-<p>Base de dados original:</p>
+<p>Base de dados ordenada:</p>
 <table>
 <thead>
 <tr class="header">
-<th>X</th>
-<th>Y</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>2</td>
-<td>A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
 </tr>
 </tbody>
 </table>
-</div><div class="column fragment" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-<p><span class="alert fontsize90">Aplicar critério MDL:</span></p>
+</div><div class="column fragment fontsize50" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="font-size: 1.3em;">
+<p><span class="alert">Verificar critério de parada com MDL:</span></p>
+</div>
+<p><span class="math display">\[GI(T) &gt; \frac{\log_2(N-1)}{N} + \frac{log_2(3^k-2)-k \times E + k_1 \times E_1 + k_2 \times E_2}{N} \]</span> onde:</p>
 <ul>
-<li class="fragment">Verifica se o ganho de informação compensa a complexidade<br>
-</li>
-<li class="fragment">Se compensar → aceita o corte</li>
+<li><span class="math inline">\(N\)</span> é o número total de instâncias,</li>
+<li><span class="math inline">\(k\)</span> é o número de classes,</li>
+<li><span class="math inline">\(E\)</span> é a entropia do conjunto original,</li>
+<li><span class="math inline">\(E_1\)</span> é a entropia do conjunto <span class="math inline">\(S_1\)</span>,</li>
+<li><span class="math inline">\(E_2\)</span> é a entropia do conjunto <span class="math inline">\(S_2\)</span>,</li>
+<li><span class="math inline">\(k_1\)</span> é o número de classes distintas em <span class="math inline">\(S_1\)</span>,</li>
+<li><span class="math inline">\(k_2\)</span> é o número de classes distintas em <span class="math inline">\(S_2\)</span>.</li>
 </ul>
+</div>
+</div>
+</div>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-16" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="quantitativo-para-qualitativo-12"><strong>Quantitativo para Qualitativo</strong></h3>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Discretização Baseada em Entropia com MDL</span></p>
+<p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
+<div class="columns" style="display: flex !important; align-items: center;">
+<div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<p>Base de dados ordenada:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column fragment fontsize50" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="font-size: 1.3em;">
+<p><span class="alert">Verificar critério de parada com MDL:</span></p>
+<p>Para o corte (<span class="math inline">\(T_1=6\)</span>): <span class="math inline">\(N\)</span> = <span class="alert">5</span> instâncias, <span class="math inline">\(k\)</span> = <span class="alert">2</span> classes, <span class="math inline">\(E\)</span> = <span class="alert">0.971</span> (entropia do conjunto original), <span class="math inline">\(E_1\)</span> = <span class="alert">0</span> (entropia do conjunto <span class="math inline">\(S_1\)</span>), <span class="math inline">\(E_2\)</span> = <span class="alert">0.918</span> (entropia do conjunto <span class="math inline">\(S_2\)</span>), <span class="math inline">\(k_1\)</span> = <span class="alert">1</span> (número de classes distintas em <span class="math inline">\(S_1\)</span>), <span class="math inline">\(k_2\)</span> = <span class="alert">2</span> (número de classes distintas em <span class="math inline">\(S_2\)</span>).</p>
+<p>Vale a pena inserir o corte <span class="math inline">\(T_1\)</span> = 6 se:</p>
+</div>
+<p><span class="math display">\[GI(T) &gt; \frac{\log_2(5-1)}{5} + \frac{log_2(3^2-2)-2 \times 0.971 + 1 \times 0 + 2 \times 0.918}{5} =0,940 \]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="conversão-de-dados-entre-tipos-diferentes-17" class="slide level2">
+<h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
+<h3 id="quantitativo-para-qualitativo-13"><strong>Quantitativo para Qualitativo</strong></h3>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Discretização Baseada em Entropia com MDL</span></p>
+<p><strong>Exemplo:</strong> Atributo contínuo (X) e classe (Y).</p>
+<div class="columns" style="display: flex !important; align-items: center;">
+<div class="column" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<p>Base de dados ordenada:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column fragment fontsize90" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<p><span class="alert">Verificar critério de parada com MDL:</span></p>
+<p>Como <span class="math inline">\(GI(T_1) = 0,420 &lt; 0,940\)</span>,</p>
+<p><strong>não vale a pena</strong> inserir o ponto de corte!</p>
+</div>
 </div>
 </div>
 <div class="quarto-auto-generated-content">
