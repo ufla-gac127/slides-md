@@ -1037,7 +1037,7 @@
 <ul>
 <li class="fragment"><span class="alert">Função logarítmica:</span> usada para reduzir a escala de valores muito grandes.
 <ul>
-<li class="fragment">Para distribuições com cauda longa, ajuda a reduzir a influência de valores extremos, tornando a distribuição mais simétrica.</li>
+<li class="fragment">Para distribuições com cauda longa, <span class="alert">ajuda a reduzir a influência de valores extremos</span>, tornando a distribuição mais simétrica.</li>
 <li class="fragment"><strong>Exemplos:</strong> renda, faturamento, contagem de eventos (cliques).</li>
 </ul></li>
 </ul>
@@ -1050,12 +1050,12 @@
 <div style="font-size: 0.95em;">
 <p><span class="alert">Funções</span> matemáticas comumente <span class="alert">utilizadas:</span></p>
 <ul>
-<li class="fragment"><span class="alert">Função raiz quadrada:</span> usada para reduzir a escala de valores muito grandes, mas de forma menos agressiva do que a função logarítmica.
+<li class="fragment"><span class="alert">Função raiz quadrada:</span> usada para reduzir a escala de valores muito grandes, mas de <span class="alert">forma menos agressiva</span> do que a função logarítmica.
 <ul>
 <li class="fragment"><strong>Exemplo:</strong> Considere os seguintes valores de um atributo: 1, 10 e 100. A aplicação da função logarítmica (base 10) resultaria em 0, 1 e 2, respectivamente, enquanto a aplicação da função raiz quadrada resultaria em 1; 3,16 e 10, respectivamente.</li>
 </ul></li>
-<li class="fragment"><span class="alert">Inverso:</span> usada para transformar valores pequenos em valores grandes e vice-versa (para valores <span class="math inline">\(\neq\)</span> 0).</li>
-<li class="fragment"><span class="alert">Módulo:</span> usada para transformar valores negativos em valores positivos.</li>
+<li class="fragment"><span class="alert">Inverso:</span> usada para transformar <span class="alert">valores pequenos</span> em <span class="alert">valores grandes</span> e vice-versa (para valores <span class="math inline">\(\neq\)</span> 0).</li>
+<li class="fragment"><span class="alert">Módulo:</span> usada para transformar <span class="alert">valores negativos</span> em <span class="alert">valores positivos</span>.</li>
 </ul>
 </div>
 </section>
@@ -1075,11 +1075,11 @@
 <div style="font-size: 0.95em;">
 <p>Por que <span class="alert">atributos</span> com escalas muito <span class="alert">diferentes</span> podem <span class="alert">afetar</span> o <span class="alert">desempenho</span> de alguns <span class="alert">algoritmos</span> de mineração de dados?</p>
 <ul>
-<li class="fragment">Algoritmos baseados em distância podem ser influenciados por atributos com escalas maiores, fazendo com que esses atributos tenham maior influência no modelo do que atributos com escalas menores.
+<li class="fragment">Algoritmos baseados em <span class="alert">distância</span> podem ser <span class="alert">influenciados</span> por atributos com <span class="alert">escalas maiores</span>, fazendo com que esses atributos tenham maior influência no modelo do que atributos com escalas menores.
 <ul>
 <li class="fragment">k-NN e agrupamento hierárquico são exemplos de algoritmos baseados em distância.</li>
 </ul></li>
-<li class="fragment">Algoritmos de otimização (p.ex., gradiente descendente) podem ter dificuldades para convergir quando os atributos têm escalas muito diferentes.
+<li class="fragment">Algoritmos de <span class="alert">otimização</span> (p.ex., gradiente descendente) podem ter <span class="alert">dificuldades para convergir</span> quando os <span class="alert">atributos</span> têm <span class="alert">escalas muito diferentes</span>.
 <ul>
 <li class="fragment">Redes neurais utilizam gradiente descendente para otimizar os pesos da rede.</li>
 </ul></li>
@@ -1089,16 +1089,18 @@
 <section id="transformação-de-dados-numéricos-5" class="slide level2">
 <h2><strong>Transformação de Dados Numéricos</strong></h2>
 <h3 id="normalização-de-dados-2"><strong>Normalização de Dados</strong></h3>
-<p>Dentre as diferentes técnicas de normalização, podemos destacar:</p>
+<div style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+<p>Dentre as diferentes <span class="alert">técnicas de normalização</span>, podemos destacar:</p>
 <ul>
-<li class="fragment">Normalização por escala: transforma os valores de um atributo para um intervalo específico pré-definido, por exemplo [0, 1] ou [-1, 1].</li>
-<li class="fragment">Normalização por padronização ou variação: transforma os valores de um atributo em um conjunto de valores que terá média 0 e desvio padrão 1.</li>
+<li class="fragment"><span class="alert">Normalização por escala:</span> transforma os valores de um atributo para um intervalo específico pré-definido, por exemplo [0, 1] ou [-1, 1].</li>
+<li class="fragment"><span class="alert">Normalização por padronização ou variação:</span> transforma os valores de um atributo em um conjunto de valores que terá média 0 e desvio padrão 1.</li>
 </ul>
+</div>
 </section>
 <section id="transformação-de-dados-numéricos-6" class="slide level2">
 <h2><strong>Transformação de Dados Numéricos</strong></h2>
 <h3 id="normalização-de-dados-por-escala"><strong>Normalização de Dados por Escala</strong></h3>
-<p>A normalização por escala é realizada por meio da seguinte fórmula:</p>
+<p>A <span class="alert">normalização por escala</span> é realizada por meio da seguinte fórmula:</p>
 <div style="font-size: 0.9em;">
 <p><span class="math display">\[x_i' = \frac{x_i - \text{min}(X)}{\text{max}(X) - \text{min}(X)} * (\text{max}_{novo}(X) - \text{min}_{novo}(X)) + \text{min}_{novo}(X),\]</span></p>
 </div>
@@ -1114,13 +1116,13 @@
 <section id="transformação-de-dados-numéricos-7" class="slide level2">
 <h2><strong>Transformação de Dados Numéricos</strong></h2>
 <h3 id="normalização-de-dados-por-escala-1"><strong>Normalização de Dados por Escala</strong></h3>
-<p>Quais são as desvantagens da normalização por escala?</p>
+<p>Quais são as <span class="alert">desvantagens</span> da <span class="alert">normalização por escala</span>?</p>
 <ul>
-<li class="fragment">É sensível a <em>outliers</em>, pois a presença de um valor extremo pode distorcer a escala dos dados.
+<li class="fragment">É <span class="alert">sensível a <em>outliers</em></span>, pois a presença de um valor extremo pode distorcer a escala dos dados.
 <ul>
 <li class="fragment">A maioria dos valores ficará concentrada em uma pequena faixa do intervalo normalizado.</li>
 </ul></li>
-<li class="fragment">Se o conjunto de dados de teste tiver um valor superior a <span class="math inline">\(\text{max}(X)\)</span> ou inferior a <span class="math inline">\(\text{min}(X)\)</span>, os valores normalizados do conjunto de dados de teste estarão fora do intervalo normalizado definido para o conjunto de dados de treinamento.
+<li class="fragment">Se o conjunto de <span class="alert">dados de teste</span> tiver um valor <span class="alert">superior</span> a <span class="math inline">\(\text{max}(X)\)</span> ou <span class="alert">inferior</span> a <span class="math inline">\(\text{min}(X)\)</span>, os <span class="alert">valores normalizados</span> do conjunto de dados de teste estarão <span class="alert">fora do intervalo</span> normalizado definido para o conjunto de dados de treinamento.
 <ul>
 <li class="fragment">Isso pode levar a resultados imprevisíveis durante a mineração de dados.</li>
 </ul></li>
@@ -1129,7 +1131,7 @@
 <section id="transformação-de-dados-numéricos-8" class="slide level2">
 <h2><strong>Transformação de Dados Numéricos</strong></h2>
 <h3 id="normalização-de-dados-por-padronização"><strong>Normalização de Dados por Padronização</strong></h3>
-<p>A normalização por padronização, também denominada <em>z-score</em>, é realizada por meio da seguinte fórmula:</p>
+<p>A <span class="alert">normalização por padronização</span>, também denominada <em>z-score</em>, é realizada por meio da seguinte fórmula:</p>
 <div style="font-size: 0.9em;">
 <p><span class="math display">\[x_i' = \frac{x_i - \mu}{\sigma},\]</span></p>
 </div>
@@ -1144,7 +1146,7 @@
 </section>
 <section id="conversão-de-dados-entre-tipos-diferentes" class="slide level2">
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
-<p>Tipos de conversão:</p>
+<p><span class="alert">Tipos de conversão:</span></p>
 <ul>
 <li class="fragment"><span class="alert">Atributo qualitativo para um atributo quantitativo:</span> codificação de dados.
 <ul>
@@ -1160,13 +1162,13 @@
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="qualitativo-para-quantitativo"><strong>Qualitativo para Quantitativo</strong></h3>
 <div style="font-size: 0.9em;">
-<p>A forma de fazer a conversão depende da existência ou não de uma <span class="alert">ordem natural</span> entre os valores do atributo qualitativo.</p>
+<p>A forma de fazer a conversão depende da <span class="alert">existência ou não</span> de uma <span class="alert">ordem natural</span> entre os valores do atributo qualitativo.</p>
 <ul>
-<li class="fragment"><span class="alert">Atributos ordinais:</span> existe uma ordem natural entre os valores, portanto, essa ordem deve ser preservada na conversão.
+<li class="fragment"><span class="alert">Atributos ordinais:</span> <strong>existe</strong> uma <span class="alert">ordem natural</span> entre os valores, portanto, essa ordem deve ser <span class="alert">preservada</span> na conversão.
 <ul>
 <li class="fragment"><strong>Exemplo:</strong> o atributo nível de satisfação (baixo, médio, alto) pode ser convertido em um atributo numérico onde “baixo” é codificado como 1, “médio” é codificado como 2 e “alto” é codificado como 3.</li>
 </ul></li>
-<li class="fragment"><span class="alert">Atributos nominais:</span> não existe uma ordem natural entre os valores, portanto, a conversão é feita codificando cada valor nominal utilizando um ou mais algarismos binários (<em>one-hot-encoding</em>).
+<li class="fragment"><span class="alert">Atributos nominais:</span> <strong>não existe</strong> uma <span class="alert">ordem natural</span> entre os valores, portanto, a conversão é feita codificando <span class="alert">cada valor</span> nominal utilizando <span class="alert">um ou mais algarismos binários</span> (<em>one-hot-encoding</em>).
 <ul>
 <li class="fragment"><strong>Exemplo:</strong> o atributo cor dos olhos (azul, verde, castanho) pode ser convertido em três atributos binários: cor_olhos_azul, cor_olhos_verde e cor_olhos_castanho.</li>
 </ul></li>
@@ -1177,11 +1179,11 @@
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="qualitativo-para-quantitativo-1"><strong>Qualitativo para Quantitativo</strong></h3>
 <div style="font-size: 0.95em;">
-<p>Observações sobre o <em>one-hot encoding</em>:</p>
+<p><span class="alert">Observações</span> sobre o <span class="alert"><em>one-hot encoding</em></span>:</p>
 <ul>
-<li class="fragment">Como o número de atributos resultantes da conversão é igual ao número de valores distintos do atributo nominal, ela pode gerar conjuntos de dados com muitos atributos.
+<li class="fragment">Como o número de atributos resultantes da conversão é igual ao número de valores distintos do atributo nominal, ela <span class="alert">pode gerar</span> conjuntos de <span class="alert">dados</span> com <span class="alert">muitos atributos</span>.
 <ul>
-<li class="fragment">Uma alternativa para esse caso é a construção de pseudo-atributos.</li>
+<li class="fragment">Uma <span class="alert">alternativa</span> para esse caso é a <span class="alert">construção</span> de <span class="alert">pseudo-atributos</span>.</li>
 <li class="fragment"><strong>Exemplo:</strong> Imagine o atributo nominal <strong>nome do país</strong> (195 países no mundo). O <em>one-hot encoding</em> resultaria em 195 atributos binários, um para cada país. Já a construção de pseudo-atributos poderia resultar em apenas 9 atributos numéricos: <strong>nome do continente</strong> (7 valores nominais, portanto, 7 atributos binários), <strong>população</strong> (1 atributo com valor inteiro) e <strong>PIB</strong> (1 atributo com valor real).</li>
 </ul></li>
 </ul>
@@ -1191,14 +1193,14 @@
 <h2><strong>Conversão de Dados entre Tipos Diferentes</strong></h2>
 <h3 id="quantitativo-para-qualitativo"><strong>Quantitativo para Qualitativo</strong></h3>
 <div style="font-size: 0.95em;">
-<p>Essa transformação é importante porque:</p>
+<p>Essa <span class="alert">transformação</span> é <span class="alert">importante</span> porque:</p>
 <ul>
-<li class="fragment">Alguns algoritmos de mineração de dados (por exemplo, ID3) só trabalham com atributos discretos.</li>
-<li class="fragment">Simplifica os dados originais tornando o processo de mineração mais eficiente.</li>
-<li class="fragment">Torna os padrões minerados mais fáceis de serem entendidos.</li>
+<li class="fragment"><span class="alert">Alguns algoritmos</span> de mineração de dados (por exemplo, ID3) só <span class="alert">trabalham</span> com <span class="alert">atributos discretos</span>.</li>
+<li class="fragment"><span class="alert">Simplifica</span> os dados originais tornando o <span class="alert">processo</span> de mineração <span class="alert">mais eficiente</span>.</li>
+<li class="fragment">Torna os <span class="alert">padrões</span> minerados mais <span class="alert">fáceis</span> de serem <span class="alert">entendidos</span>.</li>
 </ul>
 <div class="fragment">
-<p>A abordagem usual para a discretização é a definição de intervalos de valores numéricos, onde cada intervalo é associado a um valor nominal.</p>
+<p>A <span class="alert">abordagem usual</span> para a <span class="alert">discretização</span> é a <span class="alert">definição de intervalos</span> de valores numéricos, onde cada intervalo é associado a um valor nominal.</p>
 <ul>
 <li class="fragment"><strong>Exemplo:</strong> o atributo idade pode ser discretizado em faixas etárias (0-18, 19-35, 36-60, 60+).</li>
 </ul>

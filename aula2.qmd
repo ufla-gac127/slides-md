@@ -444,7 +444,7 @@ Uma [função matemática]{.alert} simples é [aplicada]{.alert} aos [valores]{.
 [Funções]{.alert} matemáticas comumente [utilizadas]{.alert}:
 
 - [Função logarítmica:]{.alert} usada para reduzir a escala de valores muito grandes.
-  - Para distribuições com cauda longa, ajuda a reduzir a influência de valores extremos, tornando a distribuição mais simétrica.
+  - Para distribuições com cauda longa, [ajuda a reduzir a influência de valores extremos]{.alert}, tornando a distribuição mais simétrica.
   - **Exemplos:** renda, faturamento, contagem de eventos (cliques).
 :::
 :::
@@ -455,10 +455,10 @@ Uma [função matemática]{.alert} simples é [aplicada]{.alert} aos [valores]{.
 :::{style='font-size: 0.95em;'}
 [Funções]{.alert} matemáticas comumente [utilizadas:]{.alert}
 
-- [Função raiz quadrada:]{.alert} usada para reduzir a escala de valores muito grandes, mas de forma menos agressiva do que a função logarítmica.
+- [Função raiz quadrada:]{.alert} usada para reduzir a escala de valores muito grandes, mas de [forma menos agressiva]{.alert} do que a função logarítmica.
   - **Exemplo:** Considere os seguintes valores de um atributo: 1, 10 e 100. A aplicação da função logarítmica (base 10) resultaria em 0, 1 e 2, respectivamente, enquanto a aplicação da função raiz quadrada resultaria em 1; 3,16 e 10, respectivamente.
-- [Inverso:]{.alert} usada para transformar valores pequenos em valores grandes e vice-versa (para valores $\neq$ 0).
-- [Módulo:]{.alert} usada para transformar valores negativos em valores positivos.
+- [Inverso:]{.alert} usada para transformar [valores pequenos]{.alert} em [valores grandes]{.alert} e vice-versa (para valores $\neq$ 0).
+- [Módulo:]{.alert} usada para transformar [valores negativos]{.alert} em [valores positivos]{.alert}.
 :::
 
 
@@ -475,23 +475,26 @@ Em alguns conjuntos de dados, os atributos numéricos podem ter [escalas muito d
 :::{style='font-size: 0.95em;'}
 Por que [atributos]{.alert} com escalas muito [diferentes]{.alert} podem [afetar]{.alert} o [desempenho]{.alert} de alguns [algoritmos]{.alert} de mineração de dados?
 
-- Algoritmos baseados em distância podem ser influenciados por atributos com escalas maiores, fazendo com que esses atributos tenham maior influência no modelo do que atributos com escalas menores.
+- Algoritmos baseados em [distância]{.alert} podem ser [influenciados]{.alert} por atributos com [escalas maiores]{.alert}, fazendo com que esses atributos tenham maior influência no modelo do que atributos com escalas menores.
   - k-NN e agrupamento hierárquico são exemplos de algoritmos baseados em distância.
-- Algoritmos de otimização (p.ex., gradiente descendente) podem ter dificuldades para convergir quando os atributos têm escalas muito diferentes. 
+- Algoritmos de [otimização]{.alert} (p.ex., gradiente descendente) podem ter [dificuldades para convergir]{.alert} quando os [atributos]{.alert} têm [escalas muito diferentes]{.alert}. 
   - Redes neurais utilizam gradiente descendente para otimizar os pesos da rede.
 :::
 
 
 ## **Transformação de Dados Numéricos**
 ### **Normalização de Dados**
-Dentre as diferentes técnicas de normalização, podemos destacar:
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+Dentre as diferentes [técnicas de normalização]{.alert}, podemos destacar:
 
-- Normalização por escala: transforma os valores de um atributo para um intervalo específico pré-definido, por exemplo [0, 1] ou [-1, 1].
-- Normalização por padronização ou variação: transforma os valores de um atributo em um conjunto de valores que terá média 0 e desvio padrão 1.
+- [Normalização por escala:]{.alert} transforma os valores de um atributo para um intervalo específico pré-definido, por exemplo [0, 1] ou [-1, 1].
+- [Normalização por padronização ou variação:]{.alert} transforma os valores de um atributo em um conjunto de valores que terá média 0 e desvio padrão 1.
+:::
+
 
 ## **Transformação de Dados Numéricos**
 ### **Normalização de Dados por Escala**
-A normalização por escala é realizada por meio da seguinte fórmula:
+A [normalização por escala]{.alert} é realizada por meio da seguinte fórmula:
 
 :::{style='font-size: 0.9em;'}
 $$x_i' = \frac{x_i - \text{min}(X)}{\text{max}(X) - \text{min}(X)} * (\text{max}_{novo}(X) - \text{min}_{novo}(X)) + \text{min}_{novo}(X),$$
@@ -506,17 +509,17 @@ onde:
 
 ## **Transformação de Dados Numéricos**
 ### **Normalização de Dados por Escala**
-Quais são as desvantagens da normalização por escala?
+Quais são as [desvantagens]{.alert} da [normalização por escala]{.alert}?
 
-- É sensível a *outliers*, pois a presença de um valor extremo pode distorcer a escala dos dados.
+- É [sensível a *outliers*]{.alert}, pois a presença de um valor extremo pode distorcer a escala dos dados.
   - A maioria dos valores ficará concentrada em uma pequena faixa do intervalo normalizado.
-- Se o conjunto de dados de teste tiver um valor superior a $\text{max}(X)$ ou inferior a $\text{min}(X)$, os valores normalizados do conjunto de dados de teste estarão fora do intervalo normalizado definido para o conjunto de dados de treinamento.
+- Se o conjunto de [dados de teste]{.alert} tiver um valor [superior]{.alert} a $\text{max}(X)$ ou [inferior]{.alert} a $\text{min}(X)$, os [valores normalizados]{.alert} do conjunto de dados de teste estarão [fora do intervalo]{.alert} normalizado definido para o conjunto de dados de treinamento.
   - Isso pode levar a resultados imprevisíveis durante a mineração de dados.
 
 
 ## **Transformação de Dados Numéricos**
 ### **Normalização de Dados por Padronização**
-A normalização por padronização, também denominada *z-score*, é realizada por meio da seguinte fórmula:
+A [normalização por padronização]{.alert}, também denominada *z-score*, é realizada por meio da seguinte fórmula:
 
 :::{style='font-size: 0.9em;'}
 $$x_i' = \frac{x_i - \mu}{\sigma},$$
@@ -530,7 +533,7 @@ onde:
 :::
 
 ## **Conversão de Dados entre Tipos Diferentes**
-Tipos de conversão:
+[Tipos de conversão:]{.alert}
 
 - [Atributo qualitativo para um atributo quantitativo:]{.alert} codificação de dados.
   - **Exemplo:** conversão do atributo sexo (categórico) para o atributo sexo (numérico) por meio da codificação, onde "M" é codificado como 0 e "F" é codificado como 1.
@@ -541,21 +544,21 @@ Tipos de conversão:
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Qualitativo para Quantitativo**
 :::{style='font-size: 0.9em;'}
-A forma de fazer a conversão depende da existência ou não de uma [ordem natural]{.alert} entre os valores do atributo qualitativo.
+A forma de fazer a conversão depende da [existência ou não]{.alert} de uma [ordem natural]{.alert} entre os valores do atributo qualitativo.
 
-- [Atributos ordinais:]{.alert} existe uma ordem natural entre os valores, portanto, essa ordem deve ser preservada na conversão.
+- [Atributos ordinais:]{.alert} **existe** uma [ordem natural]{.alert} entre os valores, portanto, essa ordem deve ser [preservada]{.alert} na conversão.
   - **Exemplo:** o atributo nível de satisfação (baixo, médio, alto) pode ser convertido em um atributo numérico onde "baixo" é codificado como 1, "médio" é codificado como 2 e "alto" é codificado como 3.
-- [Atributos nominais:]{.alert} não existe uma ordem natural entre os valores, portanto, a conversão é feita codificando cada valor nominal utilizando um ou mais algarismos binários (*one-hot-encoding*).
+- [Atributos nominais:]{.alert} **não existe** uma [ordem natural]{.alert} entre os valores, portanto, a conversão é feita codificando [cada valor]{.alert} nominal utilizando [um ou mais algarismos binários]{.alert} (*one-hot-encoding*).
   - **Exemplo:** o atributo cor dos olhos (azul, verde, castanho) pode ser convertido em três atributos binários: cor_olhos_azul, cor_olhos_verde e cor_olhos_castanho.
 :::
 
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Qualitativo para Quantitativo**
 :::{style='font-size: 0.95em;'}
-Observações sobre o *one-hot encoding*:
+[Observações]{.alert} sobre o [*one-hot encoding*]{.alert}:
 
-- Como o número de atributos resultantes da conversão é igual ao número de valores distintos do atributo nominal, ela pode gerar conjuntos de dados com muitos atributos.
-  - Uma alternativa para esse caso é a construção de pseudo-atributos.
+- Como o número de atributos resultantes da conversão é igual ao número de valores distintos do atributo nominal, ela [pode gerar]{.alert} conjuntos de [dados]{.alert} com [muitos atributos]{.alert}.
+  - Uma [alternativa]{.alert} para esse caso é a [construção]{.alert} de [pseudo-atributos]{.alert}.
   - **Exemplo:** Imagine o atributo nominal **nome do país** (195 países no mundo). O *one-hot encoding* resultaria em 195 atributos binários, um para cada país. Já a construção de pseudo-atributos poderia resultar em apenas 9 atributos numéricos: **nome do continente** (7 valores nominais, portanto, 7 atributos binários), **população** (1 atributo com valor inteiro) e **PIB** (1 atributo com valor real).
 :::
 
@@ -563,14 +566,14 @@ Observações sobre o *one-hot encoding*:
 ## **Conversão de Dados entre Tipos Diferentes**
 ### **Quantitativo para Qualitativo**
 :::{style='font-size: 0.95em;'}
-Essa transformação é importante porque:
+Essa [transformação]{.alert} é [importante]{.alert} porque:
 
-- Alguns algoritmos de mineração de dados (por exemplo, ID3) só trabalham com atributos discretos.
-- Simplifica os dados originais tornando o processo de mineração mais eficiente.
-- Torna os padrões minerados mais fáceis de serem entendidos.
+- [Alguns algoritmos]{.alert} de mineração de dados (por exemplo, ID3) só [trabalham]{.alert} com [atributos discretos]{.alert}.
+- [Simplifica]{.alert} os dados originais tornando o [processo]{.alert} de mineração [mais eficiente]{.alert}.
+- Torna os [padrões]{.alert} minerados mais [fáceis]{.alert} de serem [entendidos]{.alert}.
 
 :::{.fragment}  
-A abordagem usual para a discretização é a definição de intervalos de valores numéricos, onde cada intervalo é associado a um valor nominal.
+A [abordagem usual]{.alert} para a [discretização]{.alert} é a [definição de intervalos]{.alert} de valores numéricos, onde cada intervalo é associado a um valor nominal.
 
 - **Exemplo:** o atributo idade pode ser discretizado em faixas etárias (0-18, 19-35, 36-60, 60+).
 :::
