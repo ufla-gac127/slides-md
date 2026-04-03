@@ -1002,3 +1002,25 @@ Como $GI(T_1) = 0,420 < 0,940$,
 :::
 ::::
 :::
+
+
+# **Pré-processamento de Dados<br><br>[Redução de Dados]{.fontsize80}** {background-color="#0efb45ce" style="text-align: center;"}
+
+## **Redução de Dimensionalidade**
+
+Atualmente é comum termos conjuntos de dados com um número muito elevado de atributos.
+
+- **Exemplo:** um conjunto de dados em que cada instância representa um texto e cada atributo representa uma palavra presente no conjunto de textos.
+
+Em um conjunto de dados com um certo número de instâncias, quanto maior o número de atributos, maior o número de dimensões do espaço de representação dos dados.
+
+- O aumento da razão entre o número de atributos e o número de instâncias pode levar a um fenômeno conhecido como [maldição da dimensionalidade]{.alert}, que se refere às dificuldades de modelagem dos dados e, consequentemente, à degradação do desempenho dos modelos.
+
+
+## **Redução de Dimensionalidade**
+
+Por que aumentar a razão entre o número de atributos e o número de instâncias pode levar à degradação do desempenho dos modelos?
+- Com o aumento do número de atributos, o espaço de representação dos dados torna-se cada vez mais esparso, ou seja, as instâncias ficam cada vez mais distantes e eqüidistantes umas das outras. 
+
+https://medium.com/data-hackers/maldição-da-dimensionalidade-655e4342d64
+  
