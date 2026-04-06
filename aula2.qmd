@@ -1008,29 +1008,387 @@ Como $GI(T_1) = 0,420 < 0,940$,
 
 ## **Redução de Dimensionalidade**
 :::{style='font-size: 0.9em;'}
-Atualmente é comum termos conjuntos de dados com um número muito elevado de atributos.
+Atualmente é comum termos [conjuntos de dados]{.alert} com um [número]{.alert} muito [elevado de atributos]{.alert}.
 
 :::{.nonincremental}
 - **Exemplo:** um conjunto de dados em que cada instância representa um texto e cada atributo representa uma palavra presente no conjunto de textos.
 :::
 
 :::{.fragment}
-Em um conjunto de dados com um certo número de instâncias, quanto maior o número de atributos, maior o número de dimensões do espaço de representação dos dados.
+Em um conjunto de dados com um certo número de instâncias, quanto [maior o número de atributos]{.alert}, [maior o número de dimensões]{.alert} do espaço de representação dos dados.
 
-- O aumento da razão entre o número de atributos e o número de instâncias pode levar a um fenômeno conhecido como [maldição da dimensionalidade]{.alert}, que se refere às dificuldades de modelagem dos dados e, consequentemente, à degradação do desempenho dos modelos.
+- O aumento da [razão]{.alert} entre o [número de atributos]{.alert} e o [número de instâncias]{.alert} pode levar a um fenômeno conhecido como [maldição da dimensionalidade]{.alert}, que se refere às dificuldades de modelagem dos dados e, consequentemente, à degradação do desempenho dos modelos.
 :::
 :::
+
 
 ## **Redução de Dimensionalidade**
+Por que [aumentar]{.alert} a [razão]{.alert} entre o [número de atributos]{.alert} e o [número de instâncias]{.alert} pode levar à [degradação]{.alert} do desempenho dos modelos?
 
-Por que aumentar a razão entre o número de atributos e o número de instâncias pode levar à degradação do desempenho dos modelos?
-
-- Com o aumento do número de atributos, o espaço de representação dos dados torna-se cada vez mais esparso, ou seja, as instâncias ficam cada vez mais distantes e eqüidistantes umas das outras. 
+- Com o aumento do número de atributos, o [espaço de representação]{.alert} dos dados [torna-se]{.alert} cada vez mais [esparso]{.alert}, ou seja, as instâncias ficam cada vez mais distantes e eqüidistantes umas das outras. 
 
 :::{.fragment}
 ![](figuras/maldicao_dimensionalidade.png){fig-alt="Maldição da Dimensionalidade" fig-align="center"}
 
 :::{style="text-align: center;"}
 [Fonte: https://medium.com/data-hackers/maldição-da-dimensionalidade-655e4342d64]{.fontsize60}
+:::
+:::
+
+## **Redução de Dimensionalidade**
+::: {style='height: 80%; display: flex; flex-direction: column; justify-content: center;'}
+
+::: {.callout-tip .nonincremental}
+### Solução?
+Realizar [seleção]{.alert} de um [subconjunto de atributos]{.alert} para reduzir a dimensionalidade das bases de dados.
+:::
+
+::: {.fragment}
+Quais são as [vantagens]{.alert} de realizar a [seleção]{.alert} de um [subconjunto de atributos]{.alert} para reduzir a dimensionalidade das bases de dados?
+
+- Reduz o [tempo de treinamento]{.alert} dos modelos.
+- Melhora o [desempenho preditivo]{.alert} dos classificadores.
+- Facilita a [visualização]{.alert} dos dados.
+:::
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Atributos irrelevantes e redundantes**
+:::{style='font-size: 0.9em;'}
+**Conceitos**
+
+- Um [atributo]{.alert} é [relevante]{.alert} se ele é capaz de [distinguir exemplos]{.alert} pertencentes a classes diferentes.
+- Um [atributo]{.alert} é [redundante]{.alert} se ele possui [alto]{.alert} grau de [correlação]{.alert} com outro(s) atributo(s).
+
+::: {.fragment}
+**Mostrou-se que...**
+
+- ID3, C4.5, CART e algoritmos baseados em instâncias: apresentam [degradação no desempenho]{.alert} (acurácia preditiva) quando lidam com [atributos irrelevantes]{.alert}.  
+- Naive Bayes: é mais robusto com relação à existência de atributos irrelevantes, mas [atributos correlacionados]{.alert} (mesmo que sejam relevantes) podem [degradar]{.alert} rapidamente seu [desempenho]{.alert}.  
+
+**Alta correlação → redundância!**
+:::
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+
+**Objetivo**
+
+Escolher o [melhor subconjunto]{.alert} de atributos, ou seja, aquele que permite, a partir de um determinado conjunto de dados, a [construção]{.alert} do [melhor classificador possível]{.alert} (maximiza a acurácia).
+
+:::{.fragment}
+Para uma base com $n$ atributos, quantos subconjuntos existem?
+
+- Para uma base de dados com $n$ atributos, tem-se $2^n$ subconjuntos de atributos possíveis.
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+
+**Espaço de soluções para 4 atributos**
+![](figuras/espaco_solucoes.jpg){fig-alt="Espaço de Soluções" fig-align="center"}
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+::: {style='height: 60%; display: flex; flex-direction: column; justify-content: center;'}
+**Como escolher um subconjunto de atributos?**
+
+- Heurísticas.
+- Seleção individual de atributos para formação do subconjunto.
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+::: {style='height: 60%; display: flex; flex-direction: column; justify-content: center;'}
+**Heurísticas**
+
+A natureza do [processo heurístico]{.alert} de busca é determinada por [quatro itens básicos]{.alert}:
+
+1. Ponto de partida.
+2. A abordagem a ser utilizada para percorrer o espaço de soluções.
+3. A avaliação dos subconjuntos de atributos.
+4. Critério de parada.
+:::
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+
+O [ponto de partida]{.alert} influencia na [direção da busca]{.alert} e nos [operadores]{.alert} a serem utilizados.
+
+![](figuras/ponto_partida.jpg){fig-alt="Espaço de Soluções: Ponto de Partida" fig-align="center"}
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Hill-climbing*:** em cada etapa, [expande-se]{.alert} a solução corrente e [move-se para melhor]{.alert} solução gerada, [terminando]{.alert} quando [nenhuma das soluções]{.alert} geradas na expansão [forem melhores]{.alert} do que a solução corrente.
+:::
+
+:::{style="text-align: center;"}
+![](figuras/hill_climbing1.jpg){.fragment}
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Hill-climbing*:** em cada etapa, [expande-se]{.alert} a solução corrente e [move-se para melhor]{.alert} solução gerada, [terminando]{.alert} quando [nenhuma das soluções]{.alert} geradas na expansão [forem melhores]{.alert} do que a solução corrente.
+:::
+
+:::{style="text-align: center;"}
+![](figuras/hill_climbing2.jpg)
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Hill-climbing*:** em cada etapa, [expande-se]{.alert} a solução corrente e [move-se para melhor]{.alert} solução gerada, [terminando]{.alert} quando [nenhuma das soluções]{.alert} geradas na expansão [forem melhores]{.alert} do que a solução corrente.
+:::
+
+:::{style="text-align: center;"}
+![](figuras/hill_climbing3.jpg)
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Hill-climbing*:** em cada etapa, [expande-se]{.alert} a solução corrente e [move-se para melhor]{.alert} solução gerada, [terminando]{.alert} quando [nenhuma das soluções]{.alert} geradas na expansão [forem melhores]{.alert} do que a solução corrente.
+:::
+
+:::{style="text-align: center;"}
+![](figuras/hill_climbing4.jpg)
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Best-first*:** em cada etapa, [expande-se]{.alert} a solução corrente e [seleciona-se a melhor]{.alert} solução [gerada até o momento]{.alert} (que ainda não tenha sido expandida).
+:::
+
+:::{style="text-align: center;"}
+![](figuras/best_first1.jpg){.fragment}
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Best-first*:** em cada etapa, [expande-se]{.alert} a solução corrente e [seleciona-se a melhor]{.alert} solução [gerada até o momento]{.alert} (que ainda não tenha sido expandida).
+:::
+
+:::{style="text-align: center;"}
+![](figuras/best_first2.jpg)
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Best-first*:** em cada etapa, [expande-se]{.alert} a solução corrente e [seleciona-se a melhor]{.alert} solução [gerada até o momento]{.alert} (que ainda não tenha sido expandida).
+:::
+
+:::{style="text-align: center;"}
+![](figuras/best_first3.jpg)
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Best-first*:** em cada etapa, [expande-se]{.alert} a solução corrente e [seleciona-se a melhor]{.alert} solução [gerada até o momento]{.alert} (que ainda não tenha sido expandida).
+:::
+
+:::{style="text-align: center;"}
+![](figuras/best_first4.jpg)
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Best-first*:** em cada etapa, [expande-se]{.alert} a solução corrente e [seleciona-se a melhor]{.alert} solução [gerada até o momento]{.alert} (que ainda não tenha sido expandida).
+:::
+
+:::{style="text-align: center;"}
+![](figuras/best_first5.jpg)
+:::
+
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.65em;'}
+**Como percorrer o espaço de soluções?**
+
+***Best-first*:** em cada etapa, [expande-se]{.alert} a solução corrente e [seleciona-se a melhor]{.alert} solução [gerada até o momento]{.alert} (que ainda não tenha sido expandida).
+:::
+
+:::{style="text-align: center;"}
+![](figuras/best_first6.jpg)
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+[Abordagens]{.alert} de [avaliação]{.alert} dos subconjuntos de atributos:
+
+- ***Wrapper*:** numa etapa de pré-processamento, o [classificador]{.alert} é utilizado na [avaliação do subconjunto]{.alert} de atributos. 
+
+- **Filtro:** um [subconjunto de atributos]{.alert} é [selecionado]{.alert} numa etapa de pré-processamento, [independentemente do classificador]{.alert} a ser utilizado. A avaliação utiliza apenas as características gerais dos dados (por exemplo, entropia).
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style='font-size: 0.9em;'}
+[Características]{.alert} da abordagem ***wrapper***:
+
+- A [seleção]{.alert} dos atributos acontece numa etapa de [pré-processamento]{.alert}.
+
+- [Subconjuntos de atributos]{.alert} são [avaliados]{.alert} utilizando-se um [classificador]{.alert} gerado por algum algoritmo de indução a partir de uma base de dados de treinamento.
+
+- O [classificador]{.alert} que utilizará o subconjunto de atributos selecionado deveria fornecer uma [avaliação]{.alert} (dos subconjuntos) [melhor]{.alert} do que [métricas]{.alert} que apenas levam em consideração [características gerais]{.alert} dos dados.
+
+:::{.fragment}
+**Desvantagem?** 
+
+- O [processo de seleção]{.alert} de atributos é [computacionalmente caro]{.alert}, pois envolve a construção de vários classificadores.
+:::
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+[Características]{.alert} da abordagem **filtro**:
+
+- A idéia é [selecionar]{.alert} atributos [filtrando]{.alert}, segundo algum [critério]{.alert}, os atributos irrelevantes.
+
+- Esta filtragem, que corresponde a um [pré-processamento]{.alert}, considera [características gerais]{.alert} do conjunto de [dados]{.alert} para selecionar alguns atributos e excluir outros.
+
+- Métodos de filtros são [independentes]{.alert} do algoritmo de [classificação]{.alert}.
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+::: {style='height: 70%; display: flex; flex-direction: column; justify-content: center;'}
+[Abordagens]{.alert} **filtro**:
+
+- Um dos esquemas mais [simples]{.alert} de filtragem é [avaliar cada atributo individualmente]{.alert} de acordo com sua [correlação]{.alert} com o [atributo classe]{.alert}, selecionando os $k$ atributos com melhor avaliação.
+
+- Existem também estratégias que utilizam [métricas]{.alert} para [avaliar subconjuntos de atributos]{.alert}. Como exemplos temos:
+
+  - *Correlation-based Feature Selection -- CFS* 
+  - *Consistency-based Subset Evaluation*
+:::
+
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+
+[Críticas]{.alert} à [avaliação individual]{.alert} de atributos:
+
+- O [subconjunto]{.alert} formado pelos $k$ melhores atributos [nem sempre é o melhor]{.alert}. Por que?
+
+  1. Redundância.
+  2. Um [atributo]{.alert} completamente [irrelevante]{.alert} (quando avaliado individualmente) [pode contribuir]{.alert} para melhoria do desempenho do classificador quando [utilizado]{.alert} em [conjunto]{.alert} com outros atributos.
+  3. Mesmo [dois atributos]{.alert} completamente [irrelevantes]{.alert} (quando avaliados individualmente) [podem ser úteis]{.alert} quando utilizados [em conjunto]{.alert}.
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style="text-align: center;"}
+![](figuras/abordagem_filtro1.jpg){fig-alt="Limitações da abordagem filtro" fig-align="center"}
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+:::{style="text-align: center;"}
+![](figuras/abordagem_filtro2.jpg){fig-alt="Limitações da abordagem filtro" fig-align="center"}
+:::
+
+
+## **Redução de Dimensionalidade**
+### **Seleção de Atributos**
+::: {style='height: 60%; display: flex; flex-direction: column; justify-content: center;'}
+[Critérios de parada]{.alert} de heurísticas de busca:
+
+- Quando a adição ou remoção de atributos não melhorar a avaliação do subconjunto.
+
+- A busca continua até que se tenha atravessado o espaço de soluções.
+:::
+
+
+# **Pré-processamento de Dados<br><br>[Balanceamento de Dados]{.fontsize80}** {background-color="#0efb45ce" style="text-align: center;"}
+
+## **Balanceamento de Dados**
+
+**Problema de classes desbalanceadas:** quando a [distribuição das classes]{.alert} em um conjunto de dados é [muito desigual]{.alert}, ou seja, uma classe é representada por um número [muito maior de instâncias]{.alert} do que outra(s) classe(s).
+
+[Qual a consequência do [desbalanceamento]{.alert} entre as classes?]{.fragment}
+
+- Tendem a gerar [modelos com viés]{.alert}, ou seja, tendenciosos a [classificar]{.alert} novas instâncias com o [rótulo]{.alert} da [classe majoritária]{.alert}.
+
+::: {.callout-note .fragment}
+### Observação
+Vale ressaltar que o [desbalanceamento]{.alert} entre as classes [nem sempre]{.alert} é um [problema]{.alert}. Em muitas situações, mesmo com dados desbalanceados, os modelos gerados apresentam um [bom desempenho preditivo]{.alert}.
+:::
+
+
+
+## **Balanceamento de Dados**
+Soluções para balancear o número de instâncias por classe:
+
+- [Subamostragem]{.alert} da [classe majoritária]{.alert}: consiste em [remover instâncias]{.alert} da classe majoritária para [balancear]{.alert} o número de instâncias por classe.
+  - **Exemplo:** [Random Under-Sampling]{.alert} (RUS) -- subamostragem aleatória.
+- [Sobreamostragem]{.alert} da [classe minoritária]{.alert}: consiste em [gerar novas instâncias]{.alert} para a classe minoritária para [balancear]{.alert} o número de instâncias por classe.
+  - **Exemplo:** [Random Over-Sampling]{.alert} (ROS) -- sobreamostragem aleatória por meio de replicação de instâncias.
+- [Combinação]{.alert} de subamostragem e sobreamostragem.
+
+
+## **Balanceamento de Dados**
+:::{style='font-size: 0.85em;'}
+Deficiências das abordagens de balanceamento:
+
+- **Subamostragem:** pode [levar à perda de informação]{.alert}, pois instâncias relevantes da classe majoritária podem ser removidas.
+- **Sobreamostragem:** pode [levar ao *overfitting*]{.alert}, pois os modelos são treinados com instâncias da classe minoritária replicadas.
+
+:::{.fragment}
+Heurísticas mais sofisticadas de subamostragem e sobreamostragem que foram propostas para tentar minimizar essas deficiências:
+
+- ***Edited Nearest Neighbors (ENN)*** -- subamostragem baseada em vizinhos mais próximos.
+- ***Synthetic Minority Over-sampling Technique (SMOTE)*** -- sobreamostragem baseada na geração de instâncias sintéticas.
+- ***Adaptive Synthetic Sampling Approach for Imbalanced Learning (ADASYN)*** -- sobreamostragem baseada na geração de instâncias sintéticas adaptativas.
 :::
 :::

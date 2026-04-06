@@ -11,7 +11,7 @@
 <script src="aula2_files/libs/quarto-contrib/jquery-3.6.3/jquery-3.6.3.min.js"></script>
 <script src="aula2_files/libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.js" defer="true"></script>
 <link href="aula2_files/libs/quarto-contrib/code-fullscreen-1.0.0/code-fullscreen.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content="Prof.&nbsp;Luiz Merschmann">
   <title>aula2</title>
@@ -1796,25 +1796,25 @@
 <section id="redução-de-dimensionalidade" class="slide level2">
 <h2><strong>Redução de Dimensionalidade</strong></h2>
 <div style="font-size: 0.9em;">
-<p>Atualmente é comum termos conjuntos de dados com um número muito elevado de atributos.</p>
+<p>Atualmente é comum termos <span class="alert">conjuntos de dados</span> com um <span class="alert">número</span> muito <span class="alert">elevado de atributos</span>.</p>
 <div>
 <ul>
 <li><strong>Exemplo:</strong> um conjunto de dados em que cada instância representa um texto e cada atributo representa uma palavra presente no conjunto de textos.</li>
 </ul>
 </div>
 <div class="fragment">
-<p>Em um conjunto de dados com um certo número de instâncias, quanto maior o número de atributos, maior o número de dimensões do espaço de representação dos dados.</p>
+<p>Em um conjunto de dados com um certo número de instâncias, quanto <span class="alert">maior o número de atributos</span>, <span class="alert">maior o número de dimensões</span> do espaço de representação dos dados.</p>
 <ul>
-<li class="fragment">O aumento da razão entre o número de atributos e o número de instâncias pode levar a um fenômeno conhecido como <span class="alert">maldição da dimensionalidade</span>, que se refere às dificuldades de modelagem dos dados e, consequentemente, à degradação do desempenho dos modelos.</li>
+<li class="fragment">O aumento da <span class="alert">razão</span> entre o <span class="alert">número de atributos</span> e o <span class="alert">número de instâncias</span> pode levar a um fenômeno conhecido como <span class="alert">maldição da dimensionalidade</span>, que se refere às dificuldades de modelagem dos dados e, consequentemente, à degradação do desempenho dos modelos.</li>
 </ul>
 </div>
 </div>
 </section>
 <section id="redução-de-dimensionalidade-1" class="slide level2">
 <h2><strong>Redução de Dimensionalidade</strong></h2>
-<p>Por que aumentar a razão entre o número de atributos e o número de instâncias pode levar à degradação do desempenho dos modelos?</p>
+<p>Por que <span class="alert">aumentar</span> a <span class="alert">razão</span> entre o <span class="alert">número de atributos</span> e o <span class="alert">número de instâncias</span> pode levar à <span class="alert">degradação</span> do desempenho dos modelos?</p>
 <ul>
-<li class="fragment">Com o aumento do número de atributos, o espaço de representação dos dados torna-se cada vez mais esparso, ou seja, as instâncias ficam cada vez mais distantes e eqüidistantes umas das outras.</li>
+<li class="fragment">Com o aumento do número de atributos, o <span class="alert">espaço de representação</span> dos dados <span class="alert">torna-se</span> cada vez mais <span class="alert">esparso</span>, ou seja, as instâncias ficam cada vez mais distantes e eqüidistantes umas das outras.</li>
 </ul>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
@@ -1824,6 +1824,379 @@
 </div>
 <div style="text-align: center;">
 <p><span class="fontsize60">Fonte: https://medium.com/data-hackers/maldição-da-dimensionalidade-655e4342d64</span></p>
+</div>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-2" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<div style="height: 80%; display: flex; flex-direction: column; justify-content: center;">
+<div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Solução?</strong></p>
+</div>
+<div class="callout-content">
+<p>Realizar <span class="alert">seleção</span> de um <span class="alert">subconjunto de atributos</span> para reduzir a dimensionalidade das bases de dados.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Quais são as <span class="alert">vantagens</span> de realizar a <span class="alert">seleção</span> de um <span class="alert">subconjunto de atributos</span> para reduzir a dimensionalidade das bases de dados?</p>
+<ul>
+<li class="fragment">Reduz o <span class="alert">tempo de treinamento</span> dos modelos.</li>
+<li class="fragment">Melhora o <span class="alert">desempenho preditivo</span> dos classificadores.</li>
+<li class="fragment">Facilita a <span class="alert">visualização</span> dos dados.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-3" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="atributos-irrelevantes-e-redundantes"><strong>Atributos irrelevantes e redundantes</strong></h3>
+<div style="font-size: 0.9em;">
+<p><strong>Conceitos</strong></p>
+<ul>
+<li class="fragment">Um <span class="alert">atributo</span> é <span class="alert">relevante</span> se ele é capaz de <span class="alert">distinguir exemplos</span> pertencentes a classes diferentes.</li>
+<li class="fragment">Um <span class="alert">atributo</span> é <span class="alert">redundante</span> se ele possui <span class="alert">alto</span> grau de <span class="alert">correlação</span> com outro(s) atributo(s).</li>
+</ul>
+<div class="fragment">
+<p><strong>Mostrou-se que…</strong></p>
+<ul>
+<li class="fragment">ID3, C4.5, CART e algoritmos baseados em instâncias: apresentam <span class="alert">degradação no desempenho</span> (acurácia preditiva) quando lidam com <span class="alert">atributos irrelevantes</span>.<br>
+</li>
+<li class="fragment">Naive Bayes: é mais robusto com relação à existência de atributos irrelevantes, mas <span class="alert">atributos correlacionados</span> (mesmo que sejam relevantes) podem <span class="alert">degradar</span> rapidamente seu <span class="alert">desempenho</span>.</li>
+</ul>
+<p><strong>Alta correlação → redundância!</strong></p>
+</div>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-4" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos"><strong>Seleção de Atributos</strong></h3>
+<p><strong>Objetivo</strong></p>
+<p>Escolher o <span class="alert">melhor subconjunto</span> de atributos, ou seja, aquele que permite, a partir de um determinado conjunto de dados, a <span class="alert">construção</span> do <span class="alert">melhor classificador possível</span> (maximiza a acurácia).</p>
+<div class="fragment">
+<p>Para uma base com <span class="math inline">\(n\)</span> atributos, quantos subconjuntos existem?</p>
+<ul>
+<li class="fragment">Para uma base de dados com <span class="math inline">\(n\)</span> atributos, tem-se <span class="math inline">\(2^n\)</span> subconjuntos de atributos possíveis.</li>
+</ul>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-5" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-1"><strong>Seleção de Atributos</strong></h3>
+<p><strong>Espaço de soluções para 4 atributos</strong> <img data-src="figuras/espaco_solucoes.jpg" class="quarto-figure quarto-figure-center" alt="Espaço de Soluções"></p>
+</section>
+<section id="redução-de-dimensionalidade-6" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-2"><strong>Seleção de Atributos</strong></h3>
+<div style="height: 60%; display: flex; flex-direction: column; justify-content: center;">
+<p><strong>Como escolher um subconjunto de atributos?</strong></p>
+<ul>
+<li class="fragment">Heurísticas.</li>
+<li class="fragment">Seleção individual de atributos para formação do subconjunto.</li>
+</ul>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-7" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-3"><strong>Seleção de Atributos</strong></h3>
+<div style="height: 60%; display: flex; flex-direction: column; justify-content: center;">
+<p><strong>Heurísticas</strong></p>
+<p>A natureza do <span class="alert">processo heurístico</span> de busca é determinada por <span class="alert">quatro itens básicos</span>:</p>
+<ol type="1">
+<li class="fragment">Ponto de partida.</li>
+<li class="fragment">A abordagem a ser utilizada para percorrer o espaço de soluções.</li>
+<li class="fragment">A avaliação dos subconjuntos de atributos.</li>
+<li class="fragment">Critério de parada.</li>
+</ol>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-8" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-4"><strong>Seleção de Atributos</strong></h3>
+<p>O <span class="alert">ponto de partida</span> influencia na <span class="alert">direção da busca</span> e nos <span class="alert">operadores</span> a serem utilizados.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figuras/ponto_partida.jpg" class="quarto-figure quarto-figure-center" alt="Espaço de Soluções: Ponto de Partida"></p>
+</figure>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-9" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-5"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Hill-climbing</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">move-se para melhor</span> solução gerada, <span class="alert">terminando</span> quando <span class="alert">nenhuma das soluções</span> geradas na expansão <span class="alert">forem melhores</span> do que a solução corrente.</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/hill_climbing1.jpg" class="fragment"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-10" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-6"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Hill-climbing</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">move-se para melhor</span> solução gerada, <span class="alert">terminando</span> quando <span class="alert">nenhuma das soluções</span> geradas na expansão <span class="alert">forem melhores</span> do que a solução corrente.</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/hill_climbing2.jpg"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-11" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-7"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Hill-climbing</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">move-se para melhor</span> solução gerada, <span class="alert">terminando</span> quando <span class="alert">nenhuma das soluções</span> geradas na expansão <span class="alert">forem melhores</span> do que a solução corrente.</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/hill_climbing3.jpg"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-12" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-8"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Hill-climbing</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">move-se para melhor</span> solução gerada, <span class="alert">terminando</span> quando <span class="alert">nenhuma das soluções</span> geradas na expansão <span class="alert">forem melhores</span> do que a solução corrente.</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/hill_climbing4.jpg"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-13" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-9"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Best-first</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">seleciona-se a melhor</span> solução <span class="alert">gerada até o momento</span> (que ainda não tenha sido expandida).</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/best_first1.jpg" class="fragment"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-14" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-10"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Best-first</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">seleciona-se a melhor</span> solução <span class="alert">gerada até o momento</span> (que ainda não tenha sido expandida).</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/best_first2.jpg"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-15" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-11"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Best-first</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">seleciona-se a melhor</span> solução <span class="alert">gerada até o momento</span> (que ainda não tenha sido expandida).</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/best_first3.jpg"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-16" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-12"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Best-first</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">seleciona-se a melhor</span> solução <span class="alert">gerada até o momento</span> (que ainda não tenha sido expandida).</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/best_first4.jpg"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-17" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-13"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Best-first</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">seleciona-se a melhor</span> solução <span class="alert">gerada até o momento</span> (que ainda não tenha sido expandida).</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/best_first5.jpg"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-18" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-14"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.65em;">
+<p><strong>Como percorrer o espaço de soluções?</strong></p>
+<p><strong><em>Best-first</em>:</strong> em cada etapa, <span class="alert">expande-se</span> a solução corrente e <span class="alert">seleciona-se a melhor</span> solução <span class="alert">gerada até o momento</span> (que ainda não tenha sido expandida).</p>
+</div>
+<div style="text-align: center;">
+<p><img data-src="figuras/best_first6.jpg"></p>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-19" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-15"><strong>Seleção de Atributos</strong></h3>
+<div style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+<p><span class="alert">Abordagens</span> de <span class="alert">avaliação</span> dos subconjuntos de atributos:</p>
+<ul>
+<li class="fragment"><p><strong><em>Wrapper</em>:</strong> numa etapa de pré-processamento, o <span class="alert">classificador</span> é utilizado na <span class="alert">avaliação do subconjunto</span> de atributos.</p></li>
+<li class="fragment"><p><strong>Filtro:</strong> um <span class="alert">subconjunto de atributos</span> é <span class="alert">selecionado</span> numa etapa de pré-processamento, <span class="alert">independentemente do classificador</span> a ser utilizado. A avaliação utiliza apenas as características gerais dos dados (por exemplo, entropia).</p></li>
+</ul>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-20" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-16"><strong>Seleção de Atributos</strong></h3>
+<div style="font-size: 0.9em;">
+<p><span class="alert">Características</span> da abordagem <strong><em>wrapper</em></strong>:</p>
+<ul>
+<li class="fragment"><p>A <span class="alert">seleção</span> dos atributos acontece numa etapa de <span class="alert">pré-processamento</span>.</p></li>
+<li class="fragment"><p><span class="alert">Subconjuntos de atributos</span> são <span class="alert">avaliados</span> utilizando-se um <span class="alert">classificador</span> gerado por algum algoritmo de indução a partir de uma base de dados de treinamento.</p></li>
+<li class="fragment"><p>O <span class="alert">classificador</span> que utilizará o subconjunto de atributos selecionado deveria fornecer uma <span class="alert">avaliação</span> (dos subconjuntos) <span class="alert">melhor</span> do que <span class="alert">métricas</span> que apenas levam em consideração <span class="alert">características gerais</span> dos dados.</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Desvantagem?</strong></p>
+<ul>
+<li class="fragment">O <span class="alert">processo de seleção</span> de atributos é <span class="alert">computacionalmente caro</span>, pois envolve a construção de vários classificadores.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-21" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-17"><strong>Seleção de Atributos</strong></h3>
+<div style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+<p><span class="alert">Características</span> da abordagem <strong>filtro</strong>:</p>
+<ul>
+<li class="fragment"><p>A idéia é <span class="alert">selecionar</span> atributos <span class="alert">filtrando</span>, segundo algum <span class="alert">critério</span>, os atributos irrelevantes.</p></li>
+<li class="fragment"><p>Esta filtragem, que corresponde a um <span class="alert">pré-processamento</span>, considera <span class="alert">características gerais</span> do conjunto de <span class="alert">dados</span> para selecionar alguns atributos e excluir outros.</p></li>
+<li class="fragment"><p>Métodos de filtros são <span class="alert">independentes</span> do algoritmo de <span class="alert">classificação</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-22" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-18"><strong>Seleção de Atributos</strong></h3>
+<div style="height: 70%; display: flex; flex-direction: column; justify-content: center;">
+<p><span class="alert">Abordagens</span> <strong>filtro</strong>:</p>
+<ul>
+<li class="fragment"><p>Um dos esquemas mais <span class="alert">simples</span> de filtragem é <span class="alert">avaliar cada atributo individualmente</span> de acordo com sua <span class="alert">correlação</span> com o <span class="alert">atributo classe</span>, selecionando os <span class="math inline">\(k\)</span> atributos com melhor avaliação.</p></li>
+<li class="fragment"><p>Existem também estratégias que utilizam <span class="alert">métricas</span> para <span class="alert">avaliar subconjuntos de atributos</span>. Como exemplos temos:</p>
+<ul>
+<li class="fragment"><em>Correlation-based Feature Selection – CFS</em></li>
+<li class="fragment"><em>Consistency-based Subset Evaluation</em></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-23" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-19"><strong>Seleção de Atributos</strong></h3>
+<p><span class="alert">Críticas</span> à <span class="alert">avaliação individual</span> de atributos:</p>
+<ul>
+<li class="fragment"><p>O <span class="alert">subconjunto</span> formado pelos <span class="math inline">\(k\)</span> melhores atributos <span class="alert">nem sempre é o melhor</span>. Por que?</p>
+<ol type="1">
+<li class="fragment">Redundância.</li>
+<li class="fragment">Um <span class="alert">atributo</span> completamente <span class="alert">irrelevante</span> (quando avaliado individualmente) <span class="alert">pode contribuir</span> para melhoria do desempenho do classificador quando <span class="alert">utilizado</span> em <span class="alert">conjunto</span> com outros atributos.</li>
+<li class="fragment">Mesmo <span class="alert">dois atributos</span> completamente <span class="alert">irrelevantes</span> (quando avaliados individualmente) <span class="alert">podem ser úteis</span> quando utilizados <span class="alert">em conjunto</span>.</li>
+</ol></li>
+</ul>
+</section>
+<section id="redução-de-dimensionalidade-24" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-20"><strong>Seleção de Atributos</strong></h3>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figuras/abordagem_filtro1.jpg" class="quarto-figure quarto-figure-center" alt="Limitações da abordagem filtro"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-25" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-21"><strong>Seleção de Atributos</strong></h3>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figuras/abordagem_filtro2.jpg" class="quarto-figure quarto-figure-center" alt="Limitações da abordagem filtro"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="redução-de-dimensionalidade-26" class="slide level2">
+<h2><strong>Redução de Dimensionalidade</strong></h2>
+<h3 id="seleção-de-atributos-22"><strong>Seleção de Atributos</strong></h3>
+<div style="height: 60%; display: flex; flex-direction: column; justify-content: center;">
+<p><span class="alert">Critérios de parada</span> de heurísticas de busca:</p>
+<ul>
+<li class="fragment"><p>Quando a adição ou remoção de atributos não melhorar a avaliação do subconjunto.</p></li>
+<li class="fragment"><p>A busca continua até que se tenha atravessado o espaço de soluções.</p></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="pré-processamento-de-dados-balanceamento-de-dados" class="title-slide slide level1 center" data-background-color="#0efb45ce" style="text-align: center;">
+<h1><strong>Pré-processamento de Dados<br><br><span class="fontsize80">Balanceamento de Dados</span></strong></h1>
+
+</section>
+<section id="balanceamento-de-dados" class="slide level2">
+<h2><strong>Balanceamento de Dados</strong></h2>
+<p><strong>Problema de classes desbalanceadas:</strong> quando a <span class="alert">distribuição das classes</span> em um conjunto de dados é <span class="alert">muito desigual</span>, ou seja, uma classe é representada por um número <span class="alert">muito maior de instâncias</span> do que outra(s) classe(s).</p>
+<p><span class="fragment">Qual a consequência do <span class="alert">desbalanceamento</span> entre as classes?</span></p>
+<ul>
+<li class="fragment">Tendem a gerar <span class="alert">modelos com viés</span>, ou seja, tendenciosos a <span class="alert">classificar</span> novas instâncias com o <span class="alert">rótulo</span> da <span class="alert">classe majoritária</span>.</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observação</strong></p>
+</div>
+<div class="callout-content">
+<p>Vale ressaltar que o <span class="alert">desbalanceamento</span> entre as classes <span class="alert">nem sempre</span> é um <span class="alert">problema</span>. Em muitas situações, mesmo com dados desbalanceados, os modelos gerados apresentam um <span class="alert">bom desempenho preditivo</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="balanceamento-de-dados-1" class="slide level2">
+<h2><strong>Balanceamento de Dados</strong></h2>
+<p>Soluções para balancear o número de instâncias por classe:</p>
+<ul>
+<li class="fragment"><span class="alert">Subamostragem</span> da <span class="alert">classe majoritária</span>: consiste em <span class="alert">remover instâncias</span> da classe majoritária para <span class="alert">balancear</span> o número de instâncias por classe.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> <span class="alert">Random Under-Sampling</span> (RUS) – subamostragem aleatória.</li>
+</ul></li>
+<li class="fragment"><span class="alert">Sobreamostragem</span> da <span class="alert">classe minoritária</span>: consiste em <span class="alert">gerar novas instâncias</span> para a classe minoritária para <span class="alert">balancear</span> o número de instâncias por classe.
+<ul>
+<li class="fragment"><strong>Exemplo:</strong> <span class="alert">Random Over-Sampling</span> (ROS) – sobreamostragem aleatória por meio de replicação de instâncias.</li>
+</ul></li>
+<li class="fragment"><span class="alert">Combinação</span> de subamostragem e sobreamostragem.</li>
+</ul>
+</section>
+<section id="balanceamento-de-dados-2" class="slide level2">
+<h2><strong>Balanceamento de Dados</strong></h2>
+<div style="font-size: 0.85em;">
+<p>Deficiências das abordagens de balanceamento:</p>
+<ul>
+<li class="fragment"><strong>Subamostragem:</strong> pode <span class="alert">levar à perda de informação</span>, pois instâncias relevantes da classe majoritária podem ser removidas.</li>
+<li class="fragment"><strong>Sobreamostragem:</strong> pode <span class="alert">levar ao <em>overfitting</em></span>, pois os modelos são treinados com instâncias da classe minoritária replicadas.</li>
+</ul>
+<div class="fragment">
+<p>Heurísticas mais sofisticadas de subamostragem e sobreamostragem que foram propostas para tentar minimizar essas deficiências:</p>
+<ul>
+<li class="fragment"><strong><em>Edited Nearest Neighbors (ENN)</em></strong> – subamostragem baseada em vizinhos mais próximos.</li>
+<li class="fragment"><strong><em>Synthetic Minority Over-sampling Technique (SMOTE)</em></strong> – sobreamostragem baseada na geração de instâncias sintéticas.</li>
+<li class="fragment"><strong><em>Adaptive Synthetic Sampling Approach for Imbalanced Learning (ADASYN)</em></strong> – sobreamostragem baseada na geração de instâncias sintéticas adaptativas.</li>
+</ul>
 </div>
 </div>
 <div class="quarto-auto-generated-content">
