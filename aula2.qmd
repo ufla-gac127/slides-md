@@ -1389,7 +1389,7 @@ Heurísticas mais sofisticadas de subamostragem e sobreamostragem que foram prop
 
 - ***Edited Nearest Neighbors (ENN)*** -- subamostragem baseada em vizinhos mais próximos.
 - ***Synthetic Minority Over-sampling Technique (SMOTE)*** -- sobreamostragem baseada na geração de instâncias sintéticas.
-- ***Adaptive Synthetic Sampling Approach for Imbalanced Learning (ADASYN)*** -- sobreamostragem baseada na geração de instâncias sintéticas adaptativas.
+- ***Adaptive Synthetic Sampling Approach for Imbalanced Learning (ADASYN)*** -- sobreamostragem baseada na geração de instâncias sintéticas com ênfase em instâncias difíceis de classificar.
 :::
 :::
 
