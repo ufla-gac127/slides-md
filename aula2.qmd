@@ -1378,7 +1378,7 @@ Soluções para balancear o número de instâncias por classe:
 
 
 ## **Balanceamento de Dados**
-:::{style='font-size: 0.85em;'}
+:::{style='font-size: 0.8em;'}
 Deficiências das abordagens de balanceamento:
 
 - **Subamostragem:** pode [levar à perda de informação]{.alert}, pois instâncias relevantes da classe majoritária podem ser removidas.
