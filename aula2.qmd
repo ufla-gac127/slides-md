@@ -1392,3 +1392,8 @@ Heurísticas mais sofisticadas de subamostragem e sobreamostragem que foram prop
 - ***Adaptive Synthetic Sampling Approach for Imbalanced Learning (ADASYN)*** -- sobreamostragem baseada na geração de instâncias sintéticas adaptativas.
 :::
 :::
+
+
+##
+
+![](figuras/perguntas.png){fig-alt="Perguntas" fig-align="center" width=35%}
